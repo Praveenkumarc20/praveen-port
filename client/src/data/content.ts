@@ -138,7 +138,7 @@ export const projects: Project[] = [
       "Tamper-proof cryptographic hashes prevent counterfeit item injection into retail channels",
     ],
     links: [
-      { label: "GitHub Repository", href: "https://github.com/Djpraveenkumar" },
+      { label: "GitHub Repository", href: "https://github.com/Praveenkumarc20/praveen-port" },
     ],
   },
   {
@@ -166,7 +166,7 @@ export const projects: Project[] = [
 ];
 
 export const socials: SocialLink[] = [
-  { id: "github", label: "GitHub", href: "https://github.com/Djpraveenkumar", icon: "github" },
+  { id: "github", label: "GitHub", href: "https://github.com/Praveenkumarc20", icon: "github" },
   {
     id: "linkedin",
     label: "LinkedIn",
