@@ -17,12 +17,25 @@ export function Hero() {
   const typed = useTypewriter(profile.taglines);
 
   return (
-    <section id="home" className="relative flex min-h-screen items-center justify-center overflow-hidden py-24 sm:py-32">
+    <section
+      id="home"
+      aria-label="Hero Introduction"
+      itemScope
+      itemType="http://schema.org/Person"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden py-24 sm:py-32"
+    >
+      {/* Hidden microdata for Search Engine Crawlers */}
+      <meta itemProp="name" content={profile.name} />
+      <meta itemProp="jobTitle" content={profile.role} />
+      <meta itemProp="email" content={profile.email} />
+      <meta itemProp="telephone" content={profile.phone} />
+      <meta itemProp="address" content={profile.location} />
+
       {/* 1. Deep Dark Base */}
-      <div className="absolute inset-0 -z-30 bg-ink-900" aria-hidden />
+      <div className="absolute inset-0 -z-30 bg-ink-900" aria-hidden="true" />
 
       {/* 2. Cyberpunk Animated Radial Grid Mesh */}
-      <div className="absolute inset-0 -z-20 bg-grid-fade bg-[size:40px_40px] opacity-20 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_70%,transparent_100%)]" aria-hidden />
+      <div className="absolute inset-0 -z-20 bg-grid-fade bg-[size:40px_40px] opacity-20 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_50%,#000_70%,transparent_100%)]" aria-hidden="true" />
 
       {/* 3. Dual Animated Neon Aurora Glow Orbs */}
       <motion.div
@@ -34,6 +47,7 @@ export function Hero() {
         }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-1/3 left-1/2 -z-10 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/20 blur-[170px] pointer-events-none"
+        aria-hidden="true"
       />
       <motion.div
         animate={{
@@ -44,10 +58,11 @@ export function Hero() {
         }}
         transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-1/4 left-1/2 -z-10 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-indigo-600/20 blur-[180px] pointer-events-none"
+        aria-hidden="true"
       />
 
       {/* 4. Floating Tech Badges on Desktop */}
-      <div className="absolute inset-0 -z-10 hidden xl:block pointer-events-none select-none">
+      <div className="absolute inset-0 -z-10 hidden xl:block pointer-events-none select-none" aria-hidden="true">
         {FLOATING_BADGES.map((b, i) => {
           const Icon = b.icon;
           return (
@@ -91,7 +106,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="w-full overflow-hidden py-1"
         >
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight whitespace-nowrap drop-shadow-2xl">
+          <h1 itemProp="name" className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight whitespace-nowrap drop-shadow-2xl">
             Praveen <span className="bg-gradient-to-r from-accent via-accent-100 to-accent-600 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(0,229,255,0.35)]">Kumar C</span>
           </h1>
         </motion.div>
@@ -106,12 +121,13 @@ export function Hero() {
           <span>I am a</span>
           <span className="font-extrabold text-accent">
             {typed}
-            <span className="animate-pulse">|</span>
+            <span className="animate-pulse" aria-hidden="true">|</span>
           </span>
         </motion.div>
 
         {/* Scalable Professional Bio */}
         <motion.p
+          itemProp="description"
           className="mt-6 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed text-slate-300 font-normal"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -147,6 +163,7 @@ export function Hero() {
         >
           <a
             href="#contact"
+            title="Contact Praveen Kumar C"
             className="inline-flex items-center gap-2.5 rounded-xl bg-accent px-8 py-4 font-extrabold text-ink-900 transition-all duration-300 hover:bg-accent-600 shadow-2xl shadow-accent/25 hover:-translate-y-1 hover:shadow-accent/40"
           >
             <Mail size={19} />
@@ -155,6 +172,7 @@ export function Hero() {
           <a
             href={profile.resumeUrl}
             download
+            title="Download Praveen Kumar C Resume PDF"
             className="inline-flex items-center gap-2.5 rounded-xl border border-accent/40 bg-accent/10 px-8 py-4 font-extrabold text-accent transition-all duration-300 hover:bg-accent hover:text-ink-900 hover:-translate-y-1 shadow-xl backdrop-blur-md"
           >
             <Download size={19} />
@@ -170,15 +188,16 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <span className="text-xs font-extrabold uppercase tracking-widest text-slate-500">Connect</span>
-          <span className="h-px w-12 bg-slate-700" />
+          <span className="h-px w-12 bg-slate-700" aria-hidden="true" />
           <div className="flex items-center gap-3">
             {socials.map((s) => (
               <a
                 key={s.id}
                 href={s.href}
                 target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
+                rel="noreferrer me"
+                aria-label={`Connect on ${s.label}`}
+                title={`Praveen Kumar C on ${s.label}`}
                 className="rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:text-accent shadow-md hover:shadow-accent/20"
               >
                 <SocialIcon icon={s.icon} size={19} />
@@ -191,7 +210,8 @@ export function Hero() {
       {/* Down Scroll Indicator */}
       <motion.a
         href="#about"
-        aria-label="Scroll to about section"
+        aria-label="Scroll down to About section"
+        title="Scroll down to About section"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 text-slate-400 transition-colors hover:text-accent"
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 1.8 }}

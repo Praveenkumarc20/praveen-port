@@ -35,13 +35,21 @@ export function Navbar() {
           scrolled ? "border-b border-white/10 bg-ink-900/80 backdrop-blur-xl" : "bg-transparent"
         }`}
       >
-        <nav className="section-container flex h-20 items-center justify-between">
+        <nav aria-label="Main Navigation" className="section-container flex h-20 items-center justify-between">
           <button
             onClick={() => goTo("home")}
             className="flex items-center gap-2 text-lg font-bold tracking-wide text-white transition-opacity hover:opacity-90"
-            aria-label="Go to home"
+            aria-label="Praveen Kumar C Portfolio Home"
+            title="Praveen Kumar C Home"
           >
-            <img src={profile.logo} alt={profile.name} className="h-9 w-auto rounded-md" />
+            <img
+              src={profile.logo}
+              alt="Praveen Kumar C Logo"
+              title="Praveen Kumar C"
+              width="36"
+              height="36"
+              className="h-9 w-auto rounded-md"
+            />
           </button>
 
           <ul className="hidden items-center gap-8 lg:flex">
@@ -49,6 +57,7 @@ export function Navbar() {
               <li key={link.id}>
                 <button
                   onClick={() => goTo(link.id)}
+                  aria-current={active === link.id ? "page" : undefined}
                   className={`relative text-sm font-medium transition-colors hover:text-accent ${
                     active === link.id ? "text-accent" : "text-slate-300"
                   }`}
@@ -67,6 +76,7 @@ export function Navbar() {
               <a
                 href={profile.resumeUrl}
                 download
+                title="Download Resume PDF"
                 className="rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-colors hover:bg-accent hover:text-ink-900"
               >
                 Resume
@@ -77,7 +87,8 @@ export function Navbar() {
           <button
             className="text-white lg:hidden"
             onClick={() => setOpen(true)}
-            aria-label="Open menu"
+            aria-label="Open Navigation Menu"
+            aria-expanded={open}
           >
             <Menu size={26} />
           </button>
@@ -95,7 +106,7 @@ export function Navbar() {
             <button
               className="absolute right-6 top-6 text-white"
               onClick={() => setOpen(false)}
-              aria-label="Close menu"
+              aria-label="Close Navigation Menu"
             >
               <X size={28} />
             </button>
@@ -109,6 +120,7 @@ export function Navbar() {
                 >
                   <button
                     onClick={() => goTo(link.id)}
+                    aria-current={active === link.id ? "page" : undefined}
                     className={`text-2xl font-semibold ${
                       active === link.id ? "text-accent" : "text-white"
                     }`}

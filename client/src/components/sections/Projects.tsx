@@ -49,9 +49,9 @@ export function Projects() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section id="projects" className="relative bg-ink-800/40 py-24 overflow-hidden">
+    <section id="projects" aria-label="Software Development Projects Showcase" className="relative bg-ink-800/40 py-24 overflow-hidden">
       {/* Dynamic Background Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -z-10 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/5 blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="section-container">
         <Reveal>
@@ -64,12 +64,15 @@ export function Projects() {
 
         {/* Filter Tabs */}
         <Reveal delay={0.1}>
-          <div className="mb-12 flex flex-wrap items-center justify-center gap-3">
+          <div role="tablist" aria-label="Filter projects by category" className="mb-12 flex flex-wrap items-center justify-center gap-3">
             {CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.id;
               return (
                 <button
                   key={cat.id}
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-controls={`project-category-${cat.id}`}
                   onClick={() => setActiveCategory(cat.id)}
                   className={`relative rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
                     isActive ? "text-ink-900 shadow-lg shadow-accent/20" : "text-slate-400 hover:text-white hover:bg-white/5"
@@ -101,6 +104,8 @@ export function Projects() {
                 <motion.article
                   key={project.id}
                   layout
+                  itemScope
+                  itemType="http://schema.org/SoftwareApplication"
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
@@ -109,7 +114,7 @@ export function Projects() {
                   className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-ink-800/80 p-7 backdrop-blur-md transition-all duration-300 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10"
                 >
                   {/* Subtle Top Gradient Bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent/20 via-accent to-accent/20 opacity-0 transition-opacity group-hover:opacity-100" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent/20 via-accent to-accent/20 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
 
                   <div>
                     {/* Top Row: Icon & Featured Badge */}
@@ -126,12 +131,12 @@ export function Projects() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="mb-3 text-xl font-bold text-white transition-colors group-hover:text-accent">
+                    <h3 itemProp="name" className="mb-3 text-xl font-bold text-white transition-colors group-hover:text-accent">
                       {project.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mb-5 text-sm leading-relaxed text-slate-300 line-clamp-3">
+                    <p itemProp="description" className="mb-5 text-sm leading-relaxed text-slate-300 line-clamp-3">
                       {project.description}
                     </p>
 
@@ -157,6 +162,7 @@ export function Projects() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
+                          itemProp="applicationCategory"
                           className="rounded-md border border-white/5 bg-white/5 px-2.5 py-1 text-xs font-medium text-slate-300"
                         >
                           {tag}
@@ -168,6 +174,7 @@ export function Projects() {
                     <div className="flex items-center justify-between border-t border-white/10 pt-4">
                       <button
                         onClick={() => setSelectedProject(project)}
+                        aria-label={`View architecture details for ${project.title}`}
                         className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-accent transition-colors hover:text-white"
                       >
                         <Info size={14} />
@@ -181,6 +188,7 @@ export function Projects() {
                             href={link.href}
                             target="_blank"
                             rel="noreferrer"
+                            title={`${link.label} for ${project.title}`}
                             className="inline-flex items-center gap-1 rounded-lg border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-medium text-accent transition-colors hover:bg-accent hover:text-ink-900"
                           >
                             {link.label}
@@ -204,6 +212,9 @@ export function Projects() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-project-title"
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink-900/80 backdrop-blur-md"
             onClick={() => setSelectedProject(null)}
           >
@@ -218,6 +229,7 @@ export function Projects() {
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
+                aria-label="Close project modal"
                 className="absolute right-5 top-5 rounded-full border border-white/10 bg-white/5 p-2 text-slate-400 transition-colors hover:border-accent/40 hover:text-accent"
               >
                 <X size={20} />
@@ -232,7 +244,7 @@ export function Projects() {
                   })()}
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white">{selectedProject.title}</h3>
+                  <h3 id="modal-project-title" className="text-2xl font-bold text-white">{selectedProject.title}</h3>
                   <span className="text-xs uppercase tracking-wider font-semibold text-accent">
                     {selectedProject.category.toUpperCase()} SYSTEM ARCHITECTURE
                   </span>
@@ -296,6 +308,7 @@ export function Projects() {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
+                    title={`${link.label} for ${selectedProject.title}`}
                     className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-ink-900 transition-all hover:bg-accent-600 shadow-md shadow-accent/20"
                   >
                     {link.label}

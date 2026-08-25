@@ -16,9 +16,9 @@ export function Experience() {
   const [activeTab, setActiveTab] = useState<"all" | "work" | "education">("all");
 
   return (
-    <section id="experience" className="relative py-24 bg-ink-900/60 overflow-hidden">
+    <section id="experience" aria-label="Professional Experience and Education Timeline" className="relative py-24 bg-ink-900/60 overflow-hidden">
       {/* Subtle Background Glow */}
-      <div className="absolute top-1/3 left-1/4 -z-10 h-96 w-96 rounded-full bg-accent/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 -z-10 h-96 w-96 rounded-full bg-accent/5 blur-[120px] pointer-events-none" aria-hidden="true" />
 
       <div className="section-container">
         <Reveal>
@@ -29,11 +29,13 @@ export function Experience() {
           />
         </Reveal>
 
-        {/* View Switcher Tabs (Next.js / Vue.js style segmented tab control) */}
+        {/* View Switcher Tabs */}
         <Reveal delay={0.1}>
-          <div className="mb-14 flex items-center justify-center">
+          <div role="tablist" aria-label="Filter career journey timeline" className="mb-14 flex items-center justify-center">
             <div className="inline-flex rounded-2xl border border-white/10 bg-ink-800/80 p-1.5 backdrop-blur-xl">
               <button
+                role="tab"
+                aria-selected={activeTab === "all"}
                 onClick={() => setActiveTab("all")}
                 className={`relative rounded-xl px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 ${
                   activeTab === "all" ? "text-ink-900 shadow-md shadow-accent/20" : "text-slate-400 hover:text-white"
@@ -52,6 +54,8 @@ export function Experience() {
               </button>
 
               <button
+                role="tab"
+                aria-selected={activeTab === "work"}
                 onClick={() => setActiveTab("work")}
                 className={`relative rounded-xl px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 ${
                   activeTab === "work" ? "text-ink-900 shadow-md shadow-accent/20" : "text-slate-400 hover:text-white"
@@ -70,6 +74,8 @@ export function Experience() {
               </button>
 
               <button
+                role="tab"
+                aria-selected={activeTab === "education"}
                 onClick={() => setActiveTab("education")}
                 className={`relative rounded-xl px-5 py-2.5 text-xs sm:text-sm font-semibold transition-all duration-300 ${
                   activeTab === "education" ? "text-ink-900 shadow-md shadow-accent/20" : "text-slate-400 hover:text-white"
@@ -162,7 +168,7 @@ function TimelineCard({
   const isPresent = item.period.toLowerCase().includes("present");
 
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -170,14 +176,14 @@ function TimelineCard({
       className="relative group"
     >
       {/* Laser Node Dot on Left Vertical Line */}
-      <span className="absolute -left-[31px] sm:-left-[39px] top-1.5 flex h-7 w-7 items-center justify-center rounded-full border-2 border-accent/50 bg-ink-900 shadow-md shadow-accent/30 transition-transform duration-300 group-hover:scale-125 group-hover:border-accent">
+      <span className="absolute -left-[31px] sm:-left-[39px] top-1.5 flex h-7 w-7 items-center justify-center rounded-full border-2 border-accent/50 bg-ink-900 shadow-md shadow-accent/30 transition-transform duration-300 group-hover:scale-125 group-hover:border-accent" aria-hidden="true">
         <span className={`h-2.5 w-2.5 rounded-full ${isPresent ? "bg-accent animate-ping" : "bg-accent"}`} />
       </span>
 
       {/* Card Content Container */}
       <div className="glass relative overflow-hidden rounded-2xl border border-white/10 bg-ink-800/80 p-6 sm:p-7 backdrop-blur-xl transition-all duration-300 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10">
         {/* Subtle Top Gradient Bar */}
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
 
         {/* Top Header Row */}
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
@@ -214,18 +220,18 @@ function TimelineCard({
 
         {/* Tag Pills */}
         {item.tags && item.tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 pt-2 border-t border-white/10">
+          <ul className="flex flex-wrap gap-2 pt-2 border-t border-white/10">
             {item.tags.map((tag) => (
-              <span
+              <li
                 key={tag}
                 className="rounded-lg border border-accent/20 bg-accent/5 px-2.5 py-1 text-xs font-medium text-slate-200 transition-colors hover:border-accent/50 hover:bg-accent/15"
               >
                 {tag}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         )}
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

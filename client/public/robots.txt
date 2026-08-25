@@ -1,4 +1,16 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /*.pdf$
+
+# Googlebot specific rules
+User-agent: Googlebot
+Allow: /
+Allow: /images/
+
+# Bingbot specific rules
+User-agent: Bingbot
+Allow: /
+Allow: /images/
 
 Sitemap: https://praveenkumar.dev/sitemap.xml

@@ -13,8 +13,8 @@ const CATEGORIES = [
 
 export function Skills() {
   return (
-    <section id="skills" className="relative bg-ink-800/40 py-24">
-      <div className="absolute inset-0 -z-10 bg-grid-fade bg-[size:48px_48px]" aria-hidden />
+    <section id="skills" aria-label="Technical Skills and Core Competencies" className="relative bg-ink-800/40 py-24">
+      <div className="absolute inset-0 -z-10 bg-grid-fade bg-[size:48px_48px]" aria-hidden="true" />
       <div className="section-container">
         <Reveal>
           <SectionHeading
@@ -37,11 +37,13 @@ export function Skills() {
                     </span>
                     <h3 className="text-lg font-semibold text-white">{cat.label}</h3>
                   </div>
-                  <div className="space-y-5">
+                  <ul className="space-y-5">
                     {list.map((skill, si) => (
-                      <SkillBar key={skill.name} skill={skill} index={si} />
+                      <li key={skill.name}>
+                        <SkillBar skill={skill} index={si} />
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </Reveal>
             );

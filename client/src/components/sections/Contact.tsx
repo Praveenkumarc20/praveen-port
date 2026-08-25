@@ -42,7 +42,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" aria-label="Contact Information and Inquiry Form" className="py-24">
       <div className="section-container">
         <Reveal>
           <SectionHeading
@@ -54,7 +54,7 @@ export function Contact() {
 
         <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           <Reveal direction="left">
-            <div className="space-y-6">
+            <address className="not-italic space-y-6">
               {CONTACT_META.map((item) => {
                 const Icon = item.icon;
                 return (
@@ -67,6 +67,7 @@ export function Contact() {
                       {item.href ? (
                         <a
                           href={item.href}
+                          title={`Send ${item.label.toLowerCase()} to ${item.value}`}
                           className="font-medium text-white transition-colors hover:text-accent"
                         >
                           {item.value}
@@ -78,7 +79,7 @@ export function Contact() {
                   </div>
                 );
               })}
-            </div>
+            </address>
 
             <div className="mt-10">
               <p className="mb-4 text-sm uppercase tracking-widest text-slate-500">Connect with me</p>
@@ -88,8 +89,9 @@ export function Contact() {
                     key={s.id}
                     href={s.href}
                     target="_blank"
-                    rel="noreferrer"
-                    aria-label={s.label}
+                    rel="noreferrer me"
+                    aria-label={`Connect on ${s.label}`}
+                    title={`Praveen Kumar C on ${s.label}`}
                     className="rounded-full border border-white/10 bg-white/5 p-3 text-slate-300 transition-all hover:-translate-y-1 hover:border-accent/40 hover:text-accent"
                   >
                     <SocialIcon icon={s.icon} size={20} />
@@ -100,7 +102,7 @@ export function Contact() {
           </Reveal>
 
           <Reveal direction="right" delay={0.15}>
-            <form onSubmit={handleSubmit} className="glass space-y-5 rounded-2xl p-7 sm:p-9">
+            <form onSubmit={handleSubmit} aria-label="Send message form" className="glass space-y-5 rounded-2xl p-7 sm:p-9">
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-300">
@@ -108,8 +110,10 @@ export function Contact() {
                   </label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
                     required
+                    autoComplete="name"
                     value={form.name}
                     onChange={(e) => updateField("name", e.target.value)}
                     placeholder="Your name"
@@ -122,8 +126,10 @@ export function Contact() {
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     required
+                    autoComplete="email"
                     value={form.email}
                     onChange={(e) => updateField("email", e.target.value)}
                     placeholder="you@example.com"
@@ -138,6 +144,7 @@ export function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={6}
                   required
                   value={form.message}
@@ -154,25 +161,25 @@ export function Contact() {
               >
                 {status === "submitting" ? (
                   <>
-                    <Loader2 size={18} className="animate-spin" />
+                    <Loader2 size={18} className="animate-spin" aria-hidden="true" />
                     Sending...
                   </>
                 ) : (
                   <>
-                    <Send size={18} />
+                    <Send size={18} aria-hidden="true" />
                     Send Message
                   </>
                 )}
               </button>
 
               {status === "success" && (
-                <p className="flex items-center gap-2 text-sm font-medium text-emerald-400">
+                <p role="status" className="flex items-center gap-2 text-sm font-medium text-emerald-400">
                   <CheckCircle2 size={18} />
                   Message sent successfully! I'll get back to you soon.
                 </p>
               )}
               {status === "error" && (
-                <p className="flex items-center gap-2 text-sm font-medium text-rose-400">
+                <p role="alert" className="flex items-center gap-2 text-sm font-medium text-rose-400">
                   <XCircle size={18} />
                   {error}
                 </p>

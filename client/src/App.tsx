@@ -6,12 +6,14 @@ import { Skills } from "@/components/sections/Skills";
 import { Experience } from "@/components/sections/Experience";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
+import { HeadSEO } from "@/components/HeadSEO";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-ink-900">
+      <HeadSEO />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />
