@@ -3,7 +3,7 @@ import type { ContactForm } from "@/types";
 const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "/api";
 const GOOGLE_SHEET_WEBHOOK =
   import.meta.env.VITE_GOOGLE_SHEETS_WEBHOOK_URL ||
-  "https://script.google.com/macros/s/AKfycb7i7j4AIM4XXH9YnhjIVyFC7IiGw3mxEjShiWoxhK4snXpRyhDEu-ERKqthyDQiM0b/exec";
+  "https://script.google.com/macros/s/AKfycbzINQlHsw4sPTdgeE_ErqRJtCygwYzOmYpXXat3WNDgYv2IFZgYt0UsleICmc0EFB_F9w/exec";
 
 export interface ApiError {
   message: string;
@@ -18,21 +18,20 @@ export const api = {
     // 1. Submit to Google Sheet Webhook
     if (GOOGLE_SHEET_WEBHOOK) {
       try {
-        const formData = new FormData();
-        formData.append("Name", payload.name);
-        formData.append("Email", payload.email);
-        formData.append("Message", payload.message);
-        formData.append("name", payload.name);
-        formData.append("email", payload.email);
-        formData.append("message", payload.message);
-        formData.append(
-          "timestamp",
-          new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" })
-        );
+        const bodyData = JSON.stringify({
+          name: payload.name,
+          email: payload.email,
+          message: payload.message,
+          timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+        });
 
         await fetch(GOOGLE_SHEET_WEBHOOK, {
           method: "POST",
-          body: formData,
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+          },
+          body: bodyData,
         });
 
         sheetSuccess = true;
@@ -77,4 +76,5 @@ export const api = {
     return { status: "ok" };
   },
 };
+
 
