@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen Kumar C — Creative Tech Logo LinkedIn Banner Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #090d16;
+            --panel-bg: rgba(15, 23, 42, 0.85);
+            --accent-cyan: #38bdf8;
+            --accent-purple: #818cf8;
+            --accent-emerald: #34d399;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(129, 140, 248, 0.08) 0px, transparent 50%);
+            color: var(--text-main);
+            padding: 2.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            max-width: 900px;
+            margin-bottom: 2rem;
+        }
+
+        header .badge-tag {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 20px;
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #38bdf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Banner Preview Area */
+        .studio-preview {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+            margin-bottom: 2rem;
+        }
+
+        .canvas-frame {
+            width: 100%;
+            aspect-ratio: 4 / 1;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .avatar-guide {
+            position: absolute;
+            left: 4.5%;
+            bottom: -32px;
+            width: 135px;
+            height: 135px;
+            border-radius: 50%;
+            border: 3px dashed rgba(56, 189, 248, 0.6);
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.5rem;
+            pointer-events: none;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        /* Editor Control Grid */
+        .editor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .editor-panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+
+        .editor-panel h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .field-group {
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(9, 13, 22, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Skill Pills Grid with Logos */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-chip {
+            padding: 0.4rem 0.85rem;
+            background: rgba(9, 13, 22, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .skill-chip.active {
+            background: rgba(56, 189, 248, 0.15);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+        }
+
+        /* Action Buttons */
+        .action-bar {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn-download {
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.5);
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px rgba(56, 189, 248, 0.7);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge-tag">Brand Icons & Categorized Layout Studio</div>
+        <h1>Praveen Kumar C — Creative LinkedIn Banner Studio</h1>
+        <p>Featuring brand icons, QA testing badges, structured functional columns, and 1-click HD PNG export.</p>
+    </header>
+
+    <div class="studio-preview">
+        <div class="canvas-frame">
+            <canvas id="bannerCanvas" width="1584" height="396"></canvas>
+            <div class="avatar-guide">Profile Photo Reserved Area</div>
+        </div>
+    </div>
+
+    <div class="editor-grid">
+        <div class="editor-panel">
+            <h3>🎨 Designer Presets</h3>
+            <div class="field-group">
+                <label for="presetSelect">Visual Theme Preset</label>
+                <select id="presetSelect">
+                    <option value="figma-dark">Figma Studio Dark (Cyan & Indigo Mesh)</option>
+                    <option value="stripe-minimal">Stripe Executive (Slate & Emerald Mesh)</option>
+                    <option value="cyber-neon">Cyberpunk Neon (Electric Magenta & Violet)</option>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="layoutMode">Skill Layout Architecture</label>
+                <select id="layoutMode">
+                    <option value="categorized">Categorized Functional Columns (Full-Stack | QA | Data)</option>
+                    <option value="pills">Flowing Brand Icon Pills</option>
+                </select>
+            </div>
+            <div class="field-group">
+                <label for="statusText">Status Conversion Badge</label>
+                <input type="text" id="statusText" value="🟢 FULL STACK & QA AUTOMATION SPECIALIST">
+            </div>
+        </div>
+
+        <div class="editor-panel">
+            <h3>👤 Identity & Tagline</h3>
+            <div class="field-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" value="PRAVEEN KUMAR C">
+            </div>
+            <div class="field-group">
+                <label for="roleTitle">Role Title</label>
+                <input type="text" id="roleTitle" value="Full Stack Developer & Software QA Specialist">
+            </div>
+            <div class="field-group">
+                <label for="sloganText">Meaningful Slogan</label>
+                <input type="text" id="sloganText" value="Architecting Scalable Multi-Tenant Systems with End-to-End Test Automation">
+            </div>
+        </div>
+
+        <div class="editor-panel">
+            <h3>🌐 Contact & Portfolio Links</h3>
+            <div class="field-group">
+                <label for="portfolioUrl">Portfolio Repository Link</label>
+                <input type="text" id="portfolioUrl" value="🌐 github.com/Praveenkumarc20/praveen-port">
+            </div>
+            <div class="field-group">
+                <label for="emailAddr">Contact Email</label>
+                <input type="text" id="emailAddr" value="✉️ djpraveenkumar5@gmail.com">
+            </div>
+        </div>
+
+        <div class="editor-panel">
+            <h3>⚡ Brand Icon Skill Badges</h3>
+            <label>Toggle Brand Icons to Display</label>
+            <div class="skills-grid" id="skillsGrid">
+                <span class="skill-chip active" data-skill="React.js" data-icon="⚛️">⚛️ React.js</span>
+                <span class="skill-chip active" data-skill="Node.js" data-icon="🟢">🟢 Node.js</span>
+                <span class="skill-chip active" data-skill="Spring Boot" data-icon="🍃">🍃 Spring Boot</span>
+                <span class="skill-chip active" data-skill="Java" data-icon="☕">☕ Java</span>
+                <span class="skill-chip active" data-skill="Software QA" data-icon="🧪">🧪 Software QA</span>
+                <span class="skill-chip active" data-skill="Jest & JUnit" data-icon="🎯">🎯 Jest / JUnit</span>
+                <span class="skill-chip active" data-skill="API Testing" data-icon="⚡">⚡ API Testing</span>
+                <span class="skill-chip active" data-skill="MongoDB" data-icon="🍃">🍃 MongoDB</span>
+                <span class="skill-chip active" data-skill="Redis" data-icon="🔴">🔴 Redis</span>
+                <span class="skill-chip active" data-skill="Docker" data-icon="🐳">🐳 Docker</span>
+                <span class="skill-chip active" data-skill="TypeScript" data-icon="🟦">🟦 TypeScript</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="action-bar">
+        <button class="btn-download" onclick="downloadBanner()">
+            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            Download HD Banner (1584 × 396 PNG)
+        </button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('bannerCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const presetSelect = document.getElementById('presetSelect');
+        const layoutModeSelect = document.getElementById('layoutMode');
+        const statusTextInput = document.getElementById('statusText');
+        const fullNameInput = document.getElementById('fullName');
+        const roleTitleInput = document.getElementById('roleTitle');
+        const sloganTextInput = document.getElementById('sloganText');
+        const portfolioUrlInput = document.getElementById('portfolioUrl');
+        const emailAddrInput = document.getElementById('emailAddr');
+        const skillChips = document.querySelectorAll('.skill-chip');
+
+        skillChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                chip.classList.toggle('active');
+                renderBanner();
+            });
+        });
+
+        [presetSelect, layoutModeSelect, statusTextInput, fullNameInput, roleTitleInput, sloganTextInput, portfolioUrlInput, emailAddrInput].forEach(el => {
+            el.addEventListener('input', renderBanner);
+        });
+
+        function renderBanner() {
+            const w = 1584;
+            const h = 396;
+            const style = presetSelect.value;
+            const layout = layoutModeSelect.value;
+
+            ctx.clearRect(0, 0, w, h);
+
+            // 1. Theme Background Rendering
+            if (style === 'figma-dark') {
+                let bgGrad = ctx.createLinearGradient(0, 0, w, h);
+                bgGrad.addColorStop(0, '#090d16');
+                bgGrad.addColorStop(0.5, '#0f172a');
+                bgGrad.addColorStop(1, '#13102b');
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, w, h);
+
+                drawMeshGlow(ctx, 1250, 70, 260, 'rgba(56, 189, 248, 0.16)');
+                drawMeshGlow(ctx, 1480, 280, 220, 'rgba(129, 140, 248, 0.16)');
+                drawGrid(ctx, w, h, 'rgba(56, 189, 248, 0.035)');
+            } else if (style === 'stripe-minimal') {
+                let bgGrad = ctx.createLinearGradient(0, 0, w, h);
+                bgGrad.addColorStop(0, '#0b0f17');
+                bgGrad.addColorStop(1, '#111827');
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, w, h);
+
+                drawMeshGlow(ctx, 1200, 100, 280, 'rgba(52, 211, 153, 0.15)');
+                drawMeshGlow(ctx, 1420, 300, 200, 'rgba(56, 189, 248, 0.15)');
+                drawGrid(ctx, w, h, 'rgba(255, 255, 255, 0.025)');
+            } else if (style === 'cyber-neon') {
+                let bgGrad = ctx.createLinearGradient(0, 0, w, h);
+                bgGrad.addColorStop(0, '#06060e');
+                bgGrad.addColorStop(0.7, '#130a21');
+                bgGrad.addColorStop(1, '#200b2e');
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, w, h);
+
+                drawMeshGlow(ctx, 1150, 80, 250, 'rgba(236, 72, 153, 0.18)');
+                drawMeshGlow(ctx, 1450, 270, 230, 'rgba(168, 85, 247, 0.18)');
+                drawGrid(ctx, w, h, 'rgba(236, 72, 153, 0.04)');
+            }
+
+            // Backdrop Code Snippet
+            ctx.font = '500 13px "Fira Code", monospace';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+            ctx.fillText('describe("FullStack & QA Suite", () => { it("verifies microservices & multi-tenant APIs", async () => ... });', 440, 42);
+
+            // Profile Photo Safe Zone
+            let fadeGrad = ctx.createLinearGradient(0, 0, 460, 0);
+            fadeGrad.addColorStop(0, 'rgba(0,0,0,0.5)');
+            fadeGrad.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = fadeGrad;
+            ctx.fillRect(0, 0, 460, h);
+
+            let accentColor = style === 'figma-dark' ? '#38bdf8' : (style === 'stripe-minimal' ? '#34d399' : '#ec4899');
+            ctx.fillStyle = accentColor;
+            ctx.fillRect(w - 8, 0, 8, h);
+
+            // 2. Main Glassmorphism Panel
+            const panelX = 420;
+            const panelY = 38;
+            const panelW = 1120;
+            const panelH = 320;
+
+            ctx.save();
+            ctx.fillStyle = 'rgba(15, 23, 42, 0.65)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+            ctx.lineWidth = 1.5;
+            drawRoundRect(ctx, panelX, panelY, panelW, panelH, 18, true, true);
+
+            let strokeGrad = ctx.createLinearGradient(panelX, panelY, panelX, panelY + panelH);
+            strokeGrad.addColorStop(0, accentColor);
+            strokeGrad.addColorStop(1, '#818cf8');
+            ctx.fillStyle = strokeGrad;
+            drawRoundRect(ctx, panelX, panelY, 5, panelH, {tl: 18, bl: 18, tr: 0, br: 0}, true, false);
+            ctx.restore();
+
+            const textX = panelX + 35;
+            let curY = panelY + 42;
+
+            // 3. Status Badge Pill
+            if (statusTextInput.value.trim()) {
+                ctx.save();
+                ctx.font = '700 11px "Plus Jakarta Sans", sans-serif';
+                const statusWidth = ctx.measureText(statusTextInput.value.toUpperCase()).width + 24;
+                
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.12)';
+                ctx.strokeStyle = accentColor;
+                ctx.lineWidth = 1;
+                drawRoundRect(ctx, textX, curY - 14, statusWidth, 22, 11, true, true);
+
+                ctx.fillStyle = accentColor;
+                ctx.fillText(statusTextInput.value.toUpperCase(), textX + 12, curY + 1);
+                ctx.restore();
+
+                curY += 28;
+            }
+
+            // 4. Name & Role Title
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '800 38px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(fullNameInput.value.toUpperCase(), textX, curY);
+
+            curY += 26;
+            ctx.fillStyle = accentColor;
+            ctx.font = '600 19px "Plus Jakarta Sans", sans-serif';
+            ctx.fillText(roleTitleInput.value, textX, curY);
+
+            // Meaningful Slogan
+            if (sloganTextInput.value.trim()) {
+                curY += 20;
+                ctx.fillStyle = '#94a3b8';
+                ctx.font = '500 12.5px "Plus Jakarta Sans", sans-serif';
+                ctx.fillText(sloganTextInput.value, textX, curY);
+            }
+
+            // 5. Skill Layout (Categorized Columns vs Icon Pills)
+            curY += 24;
+
+            if (layout === 'categorized') {
+                const cols = [
+                    { title: "🚀 FULL STACK", items: ["⚛️ React.js", "🟢 Node.js", "🍃 Spring Boot", "☕ Java"] },
+                    { title: "🛡️ QA & TESTING", items: ["🧪 Software QA", "🎯 Jest / JUnit", "⚡ API Testing"] },
+                    { title: "⚡ DATA & DEVOPS", items: ["🍃 MongoDB", "🔴 Redis", "🐳 Docker", "🟦 TypeScript"] }
+                ];
+
+                let colX = textX;
+                cols.forEach(col => {
+                    ctx.font = '700 11px "Plus Jakarta Sans", sans-serif';
+                    ctx.fillStyle = accentColor;
+                    ctx.fillText(col.title, col.X || colX, curY);
+
+                    let itemY = curY + 18;
+                    ctx.font = '600 12px "Plus Jakarta Sans", sans-serif';
+                    col.items.forEach(item => {
+                        ctx.fillStyle = '#e2e8f0';
+                        ctx.fillText(item, colX, itemY);
+                        itemY += 20;
+                    });
+
+                    colX += 340;
+                });
+            } else {
+                const activeSkills = Array.from(document.querySelectorAll('.skill-chip.active')).map(el => ({
+                    name: el.dataset.skill,
+                    icon: el.dataset.icon
+                }));
+
+                let pillX = textX;
+                let pillY = curY;
+
+                ctx.font = '600 12.5px "Plus Jakarta Sans", sans-serif';
+                activeSkills.forEach(skill => {
+                    const label = `${skill.icon} ${skill.name}`;
+                    const tw = ctx.measureText(label).width;
+                    const pw = tw + 22;
+                    const ph = 26;
+
+                    if (pillX + pw > panelX + panelW - 30) {
+                        pillX = textX;
+                        pillY += 32;
+                    }
+
+                    ctx.save();
+                    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+                    ctx.lineWidth = 1;
+                    drawRoundRect(ctx, pillX, pillY, pw, ph, 13, true, true);
+
+                    ctx.fillStyle = '#e2e8f0';
+                    ctx.fillText(label, pillX + 11, pillY + 17);
+                    ctx.restore();
+
+                    pillX += pw + 8;
+                });
+            }
+
+            // 6. Contact Footer
+            const contactY = panelY + panelH - 26;
+            ctx.font = '500 13.5px "Plus Jakarta Sans", sans-serif';
+            ctx.fillStyle = '#f8fafc';
+
+            const contactItems = [
+                portfolioUrlInput.value,
+                emailAddrInput.value
+            ].filter(Boolean);
+
+            let contactX = textX;
+            contactItems.forEach((item, idx) => {
+                ctx.fillText(item, contactX, contactY);
+                contactX += ctx.measureText(item).width + 25;
+                if (idx < contactItems.length - 1) {
+                    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+                    ctx.fillText('•', contactX - 16, contactY);
+                    ctx.fillStyle = '#f8fafc';
+                }
+            });
+        }
+
+        function drawMeshGlow(ctx, x, y, radius, color) {
+            ctx.save();
+            let g = ctx.createRadialGradient(x, y, 0, x, y, radius);
+            g.addColorStop(0, color);
+            g.addColorStop(1, 'transparent');
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawGrid(ctx, w, h, color) {
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1;
+            const step = 36;
+            for (let x = 0; x < w; x += step) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, h);
+                ctx.stroke();
+            }
+            for (let y = 0; y < h; y += step) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(w, y);
+                ctx.stroke();
+            }
+            ctx.restore();
+        }
+
+        function drawRoundRect(ctx, x, y, w, h, r, fill, stroke) {
+            if (typeof r === 'number') {
+                r = {tl: r, tr: r, br: r, bl: r};
+            }
+            ctx.beginPath();
+            ctx.moveTo(x + r.tl, y);
+            ctx.lineTo(x + w - r.tr, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r.tr);
+            ctx.lineTo(x + w, y + h - r.br);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
+            ctx.lineTo(x + r.bl, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r.bl);
+            ctx.lineTo(x, y + r.tl);
+            ctx.quadraticCurveTo(x, y, x + r.tl, y);
+            ctx.closePath();
+            if (fill) ctx.fill();
+            if (stroke) ctx.stroke();
+        }
+
+        function downloadBanner() {
+            const link = document.createElement('a');
+            link.download = 'Praveen_Kumar_TechLogos_LinkedIn_Banner.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        window.onload = renderBanner;
+    </script>
+</body>
+</html>

@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen Kumar C - PHP Developer Resume (ATS Friendly)</title>
+    <meta name="description" content="ATS-Friendly PHP Developer Resume for Praveen Kumar C. Skilled in PHP 8+, Laravel, MySQL, REST APIs, Redis, Git, and Full Stack Web Development. Download as PDF or Text.">
+    <meta name="keywords" content="PHP Developer Resume, Laravel Developer, Praveen Kumar C, Full Stack PHP Developer, ATS Resume, Software Engineer Resume">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --accent: #10b981;
+            --paper-bg: #ffffff;
+            --paper-text: #111827;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Action Bar (Screen Only) */
+        .action-bar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .action-bar .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .action-bar .brand i {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .badge-ats {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            border-color: var(--primary);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            border: none;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #4338ca 0%, #2563eb 100%);
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            border: none;
+            color: #fff;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1100px;
+            margin: 24px auto;
+            padding: 0 16px;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Skills Highlights Panel (Screen Only) */
+        .skills-summary-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        .skills-summary-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skills-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            color: #e2e8f0;
+        }
+
+        .pill.highlight {
+            background: rgba(79, 70, 229, 0.2);
+            border-color: rgba(99, 102, 241, 0.4);
+            color: #a5b4fc;
+            font-weight: 600;
+        }
+
+        /* Resume Preview Canvas */
+        .resume-paper {
+            background: var(--paper-bg);
+            color: var(--paper-text);
+            padding: 48px 56px;
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+            margin: 0 auto;
+            max-width: 850px;
+            font-family: Arial, Helvetica, sans-serif; /* Recommended ATS standard font */
+            line-height: 1.5;
+            font-size: 10.5pt;
+        }
+
+        /* ATS Standard Document Typography */
+        .resume-header {
+            text-align: center;
+            border-bottom: 2px solid #111827;
+            padding-bottom: 14px;
+            margin-bottom: 20px;
+        }
+
+        .resume-header h1 {
+            font-size: 22pt;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .resume-header .job-title {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            font-size: 9.5pt;
+            color: #374151;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .contact-info a {
+            color: #1d4ed8;
+            text-decoration: none;
+        }
+
+        .section-title {
+            font-size: 11.5pt;
+            font-weight: 700;
+            color: #000000;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 1.5px solid #111827;
+            padding-bottom: 3px;
+            margin-top: 18px;
+            margin-bottom: 10px;
+        }
+
+        .summary-text {
+            font-size: 10pt;
+            color: #1f2937;
+            text-align: justify;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 6px;
+            font-size: 9.8pt;
+        }
+
+        .skills-item {
+            display: flex;
+            gap: 6px;
+        }
+
+        .skills-item strong {
+            min-width: 170px;
+            color: #000;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 14px;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .item-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .item-subtitle {
+            font-size: 10pt;
+            font-weight: 600;
+            color: #374151;
+            font-style: italic;
+        }
+
+        .item-date {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #4b5563;
+            white-space: nowrap;
+        }
+
+        .bullet-list {
+            margin-left: 18px;
+            margin-top: 4px;
+        }
+
+        .bullet-list li {
+            margin-bottom: 4px;
+            font-size: 9.8pt;
+            color: #1f2937;
+        }
+
+        .bullet-list li::marker {
+            color: #111827;
+        }
+
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            font-size: 10pt;
+            margin-bottom: 4px;
+        }
+
+        /* Notification Toast */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #10b981;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 999;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer (Screen Only) */
+        footer {
+            text-align: center;
+            padding: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        /* ----------------------------------------------------
+           PRINT STYLESHEET FOR PERFECT ATS PDF GENERATION
+           ---------------------------------------------------- */
+        @media print {
+            @page {
+                size: letter portrait;
+                margin: 12mm 15mm 12mm 15mm;
+            }
+
+            body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: block !important;
+            }
+
+            .action-bar, .skills-summary-box, footer, .toast, .btn-group {
+                display: none !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .resume-paper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+                background: transparent !important;
+                color: #000000 !important;
+            }
+
+            .resume-header {
+                border-bottom: 2px solid #000000 !important;
+            }
+
+            .section-title {
+                border-bottom: 1.5px solid #000000 !important;
+                color: #000000 !important;
+            }
+
+            .contact-info a {
+                color: #000000 !important;
+                text-decoration: none !important;
+            }
+
+            a {
+                color: #000000 !important;
+                text-decoration: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Action Bar (Top Screen Menu) -->
+    <header class="action-bar">
+        <a href="index.html" class="brand">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span>Praveen's Portfolio</span>
+        </a>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="badge-ats"><i class="fa-solid fa-circle-check"></i> 100% ATS Parsing Compliant</span>
+        </div>
+        <div class="btn-group">
+            <button onclick="window.print()" class="btn btn-primary" title="Print or save as clean ATS PDF">
+                <i class="fa-solid fa-file-pdf"></i> Download PDF
+            </button>
+            <button onclick="downloadAsText()" class="btn btn-success" title="Download pure text version for job forms">
+                <i class="fa-solid fa-file-lines"></i> Download TXT
+            </button>
+            <button onclick="copyRawATS()" class="btn" title="Copy raw resume text to clipboard">
+                <i class="fa-solid fa-copy"></i> Copy ATS Text
+            </button>
+            <button onclick="toggleEditMode()" id="editBtn" class="btn" title="Edit content live">
+                <i class="fa-solid fa-pen-to-square"></i> Edit Content
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Skills Overview Box -->
+        <section class="skills-summary-box">
+            <h3><i class="fa-solid fa-layer-group"></i> Featured PHP Developer Skills Included</h3>
+            <div class="skills-pills">
+                <span class="pill highlight">PHP 8.2 / 8.3</span>
+                <span class="pill highlight">Laravel 10 / 11</span>
+                <span class="pill highlight">MySQL & PostgreSQL</span>
+                <span class="pill highlight">RESTful API Design</span>
+                <span class="pill highlight">Object-Oriented Programming (OOP)</span>
+                <span class="pill highlight">MVC Architecture</span>
+                <span class="pill">Redis Caching</span>
+                <span class="pill">Eloquent ORM</span>
+                <span class="pill">Composer & Artisan</span>
+                <span class="pill">PHPUnit & Pest</span>
+                <span class="pill">Git & GitHub</span>
+                <span class="pill">Docker & Nginx</span>
+                <span class="pill">JavaScript (ES6+)</span>
+                <span class="pill">HTML5 & CSS3</span>
+                <span class="pill">OWASP Security (SQLi/XSS)</span>
+                <span class="pill">JWT & OAuth Authentication</span>
+                <span class="pill">SOLID & PSR Standards</span>
+            </div>
+        </section>
+
+        <!-- ATS Resume Canvas -->
+        <main class="resume-paper" id="resumeContent">
+            
+            <!-- HEADER -->
+            <header class="resume-header">
+                <h1 contenteditable="false" id="nameField">PRAVEEN KUMAR C</h1>
+                <div class="job-title" contenteditable="false" id="titleField">PHP & Laravel Developer | Full Stack Web Engineer</div>
+                <div class="contact-info">
+                    <span><i class="fa-solid fa-location-dot"></i> Pudukkottai, Tamil Nadu, India</span> |
+                    <span><i class="fa-solid fa-phone"></i> +91-8903164053</span> |
+                    <span><i class="fa-solid fa-envelope"></i> <a href="mailto:djpraveenkumar5@gmail.com">djpraveenkumar5@gmail.com</a></span> |
+                    <span><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/praveen-kumar-full-stack-developer" target="_blank">LinkedIn</a></span> |
+                    <span><i class="fa-brands fa-github"></i> <a href="https://github.com/Praveenkumarc20" target="_blank">GitHub</a></span> |
+                    <span><i class="fa-solid fa-globe"></i> <a href="https://praveenkumar.dev/" target="_blank">Portfolio</a></span>
+                </div>
+            </header>
+
+            <!-- PROFESSIONAL SUMMARY -->
+            <section>
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="summary-text" contenteditable="false" id="summaryField">
+                    Results-driven <strong>PHP Developer</strong> with solid experience building high-performance web applications, RESTful APIs, and relational database architectures using <strong>PHP 8+, Laravel, MySQL, and JavaScript</strong>. Proficient in Object-Oriented Programming (OOP), MVC framework patterns, query optimization, Redis caching, and backend API integrations. Experienced in delivering secure code following SOLID design principles, PSR standards, and OWASP security guidelines (XSS, CSRF, SQL Injection prevention). Adept at building responsive frontend user interfaces and working across the full development lifecycle in agile team environments.
+                </p>
+            </section>
+
+            <!-- TECHNICAL SKILLS -->
+            <section>
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skills-item">
+                        <strong>Backend Languages:</strong>
+                        <span>PHP 8.x (PHP 8.2/8.3), Core Java, SQL, JavaScript (ES6+)</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>Frameworks & Tools:</strong>
+                        <span>Laravel 10/11, Symfony, CodeIgniter, Composer, Artisan CLI, Node.js</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>Databases & Caching:</strong>
+                        <span>MySQL, MariaDB, PostgreSQL, Eloquent ORM, PDO, Database Indexing, Query Optimization, Redis</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>APIs & Web Services:</strong>
+                        <span>RESTful API Development, Microservices Architecture, JSON, XML, cURL, Webhooks, Payment Gateways (Stripe/Razorpay)</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>Frontend Technologies:</strong>
+                        <span>HTML5, CSS3, JavaScript (ES6+), React.js, AJAX, Responsive Web Design</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>DevOps & Testing:</strong>
+                        <span>Git, GitHub, Docker, Apache, Nginx, Linux (Ubuntu), Postman, PHPUnit, Pest PHP</span>
+                    </div>
+                    <div class="skills-item">
+                        <strong>Architecture & Security:</strong>
+                        <span>OOP, MVC Architecture, SOLID Principles, PSR Standards (PSR-1, PSR-4, PSR-12), OWASP Security, JWT Authentication</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WORK EXPERIENCE -->
+            <section>
+                <h2 class="section-title">Work Experience</h2>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <span class="item-title">Full Stack PHP Developer & Data Operations Associate</span>
+                            <span class="item-subtitle"> | Software & Data Solutions</span>
+                        </div>
+                        <span class="item-date">2025 – Present</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Architected and implemented responsive web modules and backend RESTful APIs using <strong>PHP 8, Laravel Framework, and MySQL</strong>, enhancing data processing efficiency by 25%.</li>
+                        <li>Implemented secure user authentication, role-based access control (RBAC), and session management utilizing <strong>Laravel Sanctum</strong> and JWT security standards.</li>
+                        <li>Optimized MySQL query execution, database schema indexing, and Eloquent ORM relationships, significantly improving response speeds for data-heavy operations.</li>
+                        <li>Built modular RESTful web services and integrated third-party APIs, webhooks, and automated data processing scripts.</li>
+                        <li>Collaborated with engineering teams utilizing Git version control, GitHub workflow, and peer code reviews following PSR code style standards.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <span class="item-title">Java Full Stack Development Trainee</span>
+                            <span class="item-subtitle"> | Mass Mind Institute</span>
+                        </div>
+                        <span class="item-date">2023 (6 Months)</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Completed intensive full-stack development training focusing on backend business logic, database design, REST API construction, and frontend standards.</li>
+                        <li>Developed web applications applying Object-Oriented Programming (OOP) concepts, MySQL database querying, and responsive UI principles using HTML5, CSS3, and JavaScript.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- KEY PROJECTS -->
+            <section>
+                <h2 class="section-title">Key Projects</h2>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <span class="item-title">E-Commerce & SaaS Platform Backend</span>
+                            <span class="item-subtitle"> | PHP 8, Laravel, MySQL, REST API, Redis, JavaScript</span>
+                        </div>
+                        <span class="item-date">PHP Project</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Developed a multi-tenant e-commerce backend utilizing <strong>PHP (Laravel Framework)</strong> and <strong>MySQL</strong>.</li>
+                        <li>Constructed RESTful API endpoints handling authentication, product catalog filters, dynamic shopping cart logic, and order state management.</li>
+                        <li>Integrated Redis caching layer to store session data and frequent database queries, boosting application load times by 35%.</li>
+                        <li>Implemented OWASP security controls to sanitize user inputs and prevent SQL injection, cross-site scripting (XSS), and CSRF attacks.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <span class="item-title">Blockchain Counterfeit Product Detection System</span>
+                            <span class="item-subtitle"> | Web Stack, Blockchain APIs, PHP/Node Integration, MySQL</span>
+                        </div>
+                        <span class="item-date">Final Year Project</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Engineered a verification platform to detect and prevent counterfeit products in supply chains using blockchain immutable audit records.</li>
+                        <li>Designed verification API endpoints for immediate product authenticity confirmation and cryptographic validation.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <span class="item-title">AI Disaster Intensity Analysis & Emergency Portal</span>
+                            <span class="item-subtitle"> | PHP, Web APIs, Artificial Intelligence Models, MySQL</span>
+                        </div>
+                        <span class="item-date">AI Web Application</span>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>Developed a disaster monitoring dashboard that ingests live telemetry, categorizes disaster intensity, and alerts emergency response teams.</li>
+                        <li>Constructed backend data pipelines for rapid logging, geospatial coordinate tracking, and dynamic status visualization.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- EDUCATION -->
+            <section>
+                <h2 class="section-title">Education</h2>
+                <div class="edu-item">
+                    <div>
+                        <strong class="item-title">Bachelor of Technology (B.Tech) in Information Technology</strong>
+                        <div class="item-subtitle">Mookambigai College of Engineering, Tamil Nadu, India</div>
+                    </div>
+                    <div class="item-date">Graduated: 2023</div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Toast Banner -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i> <span id="toastMsg">Action completed successfully!</span>
+    </div>
+
+    <footer>
+        <p>© <script>document.write(new Date().getFullYear())</script> Praveen Kumar C. ATS-Optimized PHP Developer Resume. Built for high parser scoring on Taleo, Workday, Greenhouse & Lever.</p>
+    </footer>
+
+    <script>
+        // Toggle Edit Mode
+        let isEditing = false;
+        function toggleEditMode() {
+            isEditing = !isEditing;
+            const editableElements = document.querySelectorAll('#resumeContent [contenteditable]');
+            const resumeContent = document.getElementById('resumeContent');
+            const editBtn = document.getElementById('editBtn');
+
+            if (isEditing) {
+                resumeContent.contentEditable = "true";
+                editBtn.innerHTML = '<i class="fa-solid fa-check"></i> Done Editing';
+                editBtn.style.background = '#059669';
+                editBtn.style.borderColor = '#10b981';
+                showToast("Edit mode enabled! Click any text to modify.");
+            } else {
+                resumeContent.contentEditable = "false";
+                editBtn.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit Content';
+                editBtn.style.background = '';
+                editBtn.style.borderColor = '';
+                showToast("Changes saved!");
+            }
+        }
+
+        // Show Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+
+        // Download as Plain Text (ATS Formatter)
+        function downloadAsText() {
+            const resume = document.getElementById('resumeContent');
+            
+            let textContent = `PRAVEEN KUMAR C
+PHP & Laravel Developer | Full Stack Web Engineer
+Pudukkottai, Tamil Nadu, India | +91-8903164053 | djpraveenkumar5@gmail.com
+LinkedIn: linkedin.com/in/praveen-kumar-full-stack-developer | GitHub: github.com/Praveenkumarc20 | Portfolio: praveenkumar.dev
+
+================================================================================
+PROFESSIONAL SUMMARY
+================================================================================
+Results-driven PHP Developer with solid experience building high-performance web applications, RESTful APIs, and relational database architectures using PHP 8+, Laravel, MySQL, and JavaScript. Proficient in Object-Oriented Programming (OOP), MVC framework patterns, query optimization, Redis caching, and backend API integrations. Experienced in delivering secure code following SOLID design principles, PSR standards, and OWASP security guidelines (XSS, CSRF, SQL Injection prevention). Adept at building responsive frontend user interfaces and working across the full development lifecycle in agile team environments.
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+* Backend Languages: PHP 8.x (PHP 8.2/8.3), Core Java, SQL, JavaScript (ES6+)
+* Frameworks & Tools: Laravel 10/11, Symfony, CodeIgniter, Composer, Artisan CLI, Node.js
+* Databases & Caching: MySQL, MariaDB, PostgreSQL, Eloquent ORM, PDO, Database Indexing, Query Optimization, Redis
+* APIs & Web Services: RESTful API Development, Microservices Architecture, JSON, XML, cURL, Webhooks, Payment Gateways (Stripe/Razorpay)
+* Frontend Technologies: HTML5, CSS3, JavaScript (ES6+), React.js, AJAX, Responsive Web Design
+* DevOps & Testing: Git, GitHub, Docker, Apache, Nginx, Linux (Ubuntu), Postman, PHPUnit, Pest PHP
+* Architecture & Security: OOP, MVC Architecture, SOLID Principles, PSR Standards (PSR-1, PSR-4, PSR-12), OWASP Security, JWT Authentication
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+Full Stack PHP Developer & Data Operations Associate | Software & Data Solutions
+2025 - Present
+• Architected and implemented responsive web modules and backend RESTful APIs using PHP 8, Laravel Framework, and MySQL, enhancing data processing efficiency by 25%.
+• Implemented secure user authentication, role-based access control (RBAC), and session management utilizing Laravel Sanctum and JWT security standards.
+• Optimized MySQL query execution, database schema indexing, and Eloquent ORM relationships, significantly improving response speeds for data-heavy operations.
+• Built modular RESTful web services and integrated third-party APIs, webhooks, and automated data processing scripts.
+• Collaborated with engineering teams utilizing Git version control, GitHub workflow, and peer code reviews following PSR code style standards.
+
+Java Full Stack Development Trainee | Mass Mind Institute
+2023 (6 Months)
+• Completed intensive full-stack development training focusing on backend business logic, database design, REST API construction, and frontend standards.
+• Developed web applications applying Object-Oriented Programming (OOP) concepts, MySQL database querying, and responsive UI principles using HTML5, CSS3, and JavaScript.
+
+================================================================================
+KEY PROJECTS
+================================================================================
+E-Commerce & SaaS Platform Backend | PHP 8, Laravel, MySQL, REST API, Redis, JavaScript
+• Developed a multi-tenant e-commerce backend utilizing PHP (Laravel Framework) and MySQL.
+• Constructed RESTful API endpoints handling authentication, product catalog filters, dynamic shopping cart logic, and order state management.
+• Integrated Redis caching layer to store session data and frequent database queries, boosting application load times by 35%.
+• Implemented OWASP security controls to sanitize user inputs and prevent SQL injection, cross-site scripting (XSS), and CSRF attacks.
+
+Blockchain Counterfeit Product Detection System | Final Year Project
+• Engineered a verification platform to detect and prevent counterfeit products in supply chains using blockchain immutable audit records.
+• Designed verification API endpoints for immediate product authenticity confirmation and cryptographic validation.
+
+AI Disaster Intensity Analysis & Emergency Portal | AI Web Application
+• Developed a disaster monitoring dashboard that ingests live telemetry, categorizes disaster intensity, and alerts emergency response teams.
+• Constructed backend data pipelines for rapid logging, geospatial coordinate tracking, and dynamic status visualization.
+
+================================================================================
+EDUCATION
+================================================================================
+Bachelor of Technology (B.Tech) in Information Technology | 2023
+Mookambigai College of Engineering, Tamil Nadu, India
+`;
+
+            const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Praveen_Kumar_PHP_Developer_Resume_ATS.txt';
+            link.click();
+            URL.revokeObjectURL(link.href);
+            showToast("Downloaded ATS Plain Text Resume (.txt)");
+        }
+
+        // Copy Raw ATS Text
+        function copyRawATS() {
+            const textContent = `PRAVEEN KUMAR C
+PHP & Laravel Developer | Full Stack Web Engineer
+Pudukkottai, Tamil Nadu, India | +91-8903164053 | djpraveenkumar5@gmail.com
+LinkedIn: linkedin.com/in/praveen-kumar-full-stack-developer | GitHub: github.com/Praveenkumarc20 | Portfolio: praveenkumar.dev
+
+PROFESSIONAL SUMMARY
+Results-driven PHP Developer with solid experience building high-performance web applications, RESTful APIs, and relational database architectures using PHP 8+, Laravel, MySQL, and JavaScript. Proficient in Object-Oriented Programming (OOP), MVC framework patterns, query optimization, Redis caching, and backend API integrations. Experienced in delivering secure code following SOLID design principles, PSR standards, and OWASP security guidelines (XSS, CSRF, SQL Injection prevention).
+
+TECHNICAL SKILLS
+- Backend Languages: PHP 8.x (PHP 8.2/8.3), Core Java, SQL, JavaScript (ES6+)
+- Frameworks & Tools: Laravel 10/11, Symfony, CodeIgniter, Composer, Artisan CLI, Node.js
+- Databases & Caching: MySQL, MariaDB, PostgreSQL, Eloquent ORM, PDO, Database Indexing, Query Optimization, Redis
+- APIs & Web Services: RESTful API Development, Microservices Architecture, JSON, XML, cURL, Webhooks, Payment Gateways (Stripe/Razorpay)
+- Frontend Technologies: HTML5, CSS3, JavaScript (ES6+), React.js, AJAX, Responsive Web Design
+- DevOps & Testing: Git, GitHub, Docker, Apache, Nginx, Linux (Ubuntu), Postman, PHPUnit, Pest PHP
+- Architecture & Security: OOP, MVC Architecture, SOLID Principles, PSR Standards (PSR-1, PSR-4, PSR-12), OWASP Security, JWT Authentication
+
+WORK EXPERIENCE
+Full Stack PHP Developer & Data Operations Associate | Software & Data Solutions (2025 - Present)
+• Architected and implemented responsive web modules and backend RESTful APIs using PHP 8, Laravel Framework, and MySQL, enhancing data processing efficiency by 25%.
+• Implemented secure user authentication, role-based access control (RBAC), and session management utilizing Laravel Sanctum and JWT security standards.
+• Optimized MySQL query execution, database schema indexing, and Eloquent ORM relationships.
+• Built modular RESTful web services and integrated third-party APIs, webhooks, and automated data processing scripts.
+
+Java Full Stack Development Trainee | Mass Mind Institute (2023 - 6 Months)
+• Completed intensive full-stack development training focusing on backend business logic, database design, REST API construction, and frontend standards.
+
+KEY PROJECTS
+E-Commerce & SaaS Platform Backend | PHP 8, Laravel, MySQL, REST API, Redis, JavaScript
+• Developed a multi-tenant e-commerce backend utilizing PHP (Laravel Framework) and MySQL database.
+• Constructed RESTful API endpoints handling authentication, product catalog filters, dynamic shopping cart logic, and order state management.
+• Integrated Redis caching layer to store session data and frequent database queries, boosting performance by 35%.
+
+Blockchain Counterfeit Product Detection System | Final Year Project
+• Engineered a verification platform to detect and prevent counterfeit products in supply chains using blockchain immutable audit records.
+
+AI Disaster Intensity Analysis & Emergency Portal | AI Web Application
+• Developed a disaster monitoring dashboard that ingests live telemetry, categorizes disaster intensity, and alerts emergency response teams.
+
+EDUCATION
+Bachelor of Technology (B.Tech) in Information Technology | Mookambigai College of Engineering (2023)`;
+
+            navigator.clipboard.writeText(textContent).then(() => {
+                showToast("Copied ATS Resume Text to Clipboard!");
+            }).catch(err => {
+                console.error("Clipboard error:", err);
+            });
+        }
+    </script>
+</body>
+</html>

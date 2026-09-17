@@ -32,7 +32,9 @@ export function Navbar() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled ? "border-b border-white/10 bg-ink-900/80 backdrop-blur-xl" : "bg-transparent"
+          scrolled
+            ? "opacity-100 translate-y-0 border-b border-white/10 bg-[#080808]/85 backdrop-blur-xl pointer-events-auto"
+            : "opacity-0 -translate-y-2 pointer-events-none"
         }`}
       >
         <nav aria-label="Main Navigation" className="section-container flex h-20 items-center justify-between">
