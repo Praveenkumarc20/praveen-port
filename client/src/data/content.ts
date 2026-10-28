@@ -94,6 +94,32 @@ export const education: TimelineItem[] = [
 
 export const projects: Project[] = [
   {
+    id: "wacrm-whatsapp-crm",
+    title: "wacrm — WhatsApp CRM & Engagement Platform",
+    category: "multi-tenant",
+    description:
+      "Enterprise-grade WhatsApp CRM platform designed to unify customer interactions, lead pipelines, and team collaboration. Engineered a modular Spring Boot 3.x layered backend with React.js, secured via Spring Security & stateless JWT, backed by MySQL relational persistence, and integrated with Meta WhatsApp Business Platform APIs & Webhooks for real-time messaging.",
+    icon: "layers",
+    tags: ["Java 21", "Spring Boot 3", "React.js", "Spring Security", "JWT", "MySQL", "Hibernate", "WhatsApp API", "REST APIs"],
+    featured: true,
+    metrics: [
+      { label: "Backend", value: "Spring Boot 3 & Java 21" },
+      { label: "Auth & Security", value: "JWT + RBAC" },
+      { label: "Database", value: "MySQL 8 + JPA" },
+      { label: "Integration", value: "WhatsApp Cloud API" },
+    ],
+    architectureHighlights: [
+      "Layered architecture separating Controller, Service, Repository, DTO, and Global Exception Handling",
+      "Stateless Spring Security with JWT tokens, BCrypt hashing, and role-based access control (RBAC)",
+      "Meta WhatsApp Business API integration with secure Webhook signature verification for real-time event ingestion",
+      "Normalized MySQL relational schema managed via Spring Data JPA with transactional consistency",
+      "Interactive React.js dashboard for Kanban sales pipelines, contact tagging, and campaign analytics",
+    ],
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/Praveenkumarc20/praveen-port" },
+    ],
+  },
+  {
     id: "nexusforce-ai",
     title: "NexusForce AI",
     category: "multi-tenant",
