@@ -13,9 +13,9 @@ export const profile = {
   email: "djpraveenkumar5@gmail.com",
   phone: "+91 8903164053",
   resumeUrl: "/files/Praveenupdate.pdf",
-  avatar: "/images/phone-background.png",
+  avatar: "/images/profile-headshot.png",
   logo: "/images/logo.png",
-  heroImage: "/images/phone-background.png",
+  heroImage: "/images/profile-headshot.png",
   about: [
     "Full Stack Developer specializing in building scalable, event-driven multi-tenant web applications and RESTful microservices.",
     "Proficient in implementing high-concurrency architectures using Node.js, Express, Java/Spring Boot, React.js, Redis, and MongoDB ACID transactions.",
