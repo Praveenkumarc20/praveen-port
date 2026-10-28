@@ -1,7 +1,8 @@
 export interface Skill {
   name: string;
-  level: number;
+  icon?: string;
   category: "frontend" | "backend" | "database" | "tools";
+  level?: number;
 }
 
 export interface TimelineItem {

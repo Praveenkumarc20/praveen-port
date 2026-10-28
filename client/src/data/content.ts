@@ -37,30 +37,36 @@ export const coursework = [
 
 export const skills: Skill[] = [
   // Frontend
-  { name: "React.js & Next.js", level: 90, category: "frontend" },
-  { name: "TypeScript", level: 88, category: "frontend" },
-  { name: "JavaScript (ES6+)", level: 92, category: "frontend" },
-  { name: "Tailwind CSS & CSS3", level: 90, category: "frontend" },
-  { name: "HTML5 & Web Standards", level: 95, category: "frontend" },
-  { name: "WordPress & Elementor", level: 86, category: "frontend" },
-  
+  { name: "React", icon: "react", category: "frontend" },
+  { name: "Next.js", icon: "next", category: "frontend" },
+  { name: "TypeScript", icon: "typescript", category: "frontend" },
+  { name: "JavaScript", icon: "javascript", category: "frontend" },
+  { name: "Tailwind CSS", icon: "tailwind", category: "frontend" },
+  { name: "HTML5", icon: "html", category: "frontend" },
+  { name: "WordPress", icon: "wordpress", category: "frontend" },
+  { name: "Elementor", icon: "elementor", category: "frontend" },
+
   // Backend
-  { name: "Node.js & Express.js", level: 92, category: "backend" },
-  { name: "Core Java & Spring Boot", level: 88, category: "backend" },
-  { name: "Python", level: 80, category: "backend" },
-  { name: "PHP & JSP", level: 75, category: "backend" },
+  { name: "Java", icon: "java", category: "backend" },
+  { name: "Spring Boot", icon: "spring", category: "backend" },
+  { name: "Node.js", icon: "node", category: "backend" },
+  { name: "Express.js", icon: "express", category: "backend" },
+  { name: "Python", icon: "python", category: "backend" },
+  { name: "PHP", icon: "php", category: "backend" },
 
   // Database & Middleware
-  { name: "MongoDB (ACID Transactions)", level: 88, category: "database" },
-  { name: "Redis & BullMQ", level: 86, category: "database" },
-  { name: "Socket.io (Real-time)", level: 85, category: "database" },
-  { name: "MySQL & JDBC", level: 84, category: "database" },
+  { name: "MySQL", icon: "mysql", category: "database" },
+  { name: "MongoDB", icon: "mongo", category: "database" },
+  { name: "Redis", icon: "redis", category: "database" },
+  { name: "Socket.io", icon: "socket", category: "database" },
+  { name: "BullMQ", icon: "bullmq", category: "database" },
 
   // Tools & DevOps
-  { name: "Docker & Containerization", level: 85, category: "tools" },
-  { name: "Git & GitHub", level: 90, category: "tools" },
-  { name: "Swagger (OpenAPI 3.0) / Postman", level: 88, category: "tools" },
-  { name: "Render & Vercel", level: 85, category: "tools" },
+  { name: "Docker", icon: "docker", category: "tools" },
+  { name: "Git", icon: "git", category: "tools" },
+  { name: "GitHub", icon: "github", category: "tools" },
+  { name: "Postman", icon: "postman", category: "tools" },
+  { name: "Vercel", icon: "vercel", category: "tools" },
 ];
 
 export const experience: TimelineItem[] = [
