@@ -1,4 +1,4 @@
-import type { Project, Skill, SocialLink, TimelineItem } from "@/types";
+import type { FAQItem, Project, ServiceItem, Skill, SocialLink, TimelineItem } from "@/types";
 
 export const profile = {
   name: "Praveen Kumar C",
@@ -252,11 +252,86 @@ export const socials: SocialLink[] = [
   { id: "twitter", label: "X / Twitter", href: "https://x.com/DjPraveenKumar5", icon: "twitter" },
 ];
 
+export const services: ServiceItem[] = [
+  {
+    id: "full-stack-web",
+    title: "Full-Stack Web Development",
+    description:
+      "Build responsive production web applications with React.js, Node.js, Java, and Spring Boot, focusing on clean architecture and high performance.",
+    tags: ["React.js & Next.js", "TypeScript & JavaScript", "Node.js & Express", "Java & Spring Boot"],
+    icon: "code",
+  },
+  {
+    id: "multi-tenant-saas",
+    title: "Multi-Tenant SaaS & CRM",
+    description:
+      "Engineer scalable B2B SaaS products, enterprise CRM platforms, and secure tenant-isolated data schemas with granular role-based access control.",
+    tags: ["Multi-Tenant Architecture", "WhatsApp CRM", "JWT & RBAC", "MongoDB & MySQL"],
+    icon: "layers",
+  },
+  {
+    id: "event-driven-backend",
+    title: "Event-Driven Backend Systems",
+    description:
+      "Build RESTful microservices and asynchronous processing pipelines for reliable production systems using background queues and real-time streaming.",
+    tags: ["RESTful APIs", "Redis & BullMQ", "Socket.io", "MongoDB ACID Transactions"],
+    icon: "cpu",
+  },
+  {
+    id: "websites-support",
+    title: "Websites & Production Support",
+    description:
+      "Develop responsive business websites and maintain dependable web applications and infrastructure with proactive debugging and optimization.",
+    tags: ["WordPress & Elementor", "Responsive Web Design", "Database Optimization", "IT Support & Maintenance"],
+    icon: "globe",
+  },
+];
+
+export const faqs: FAQItem[] = [
+  {
+    id: "faq-1",
+    question: "01. Who is Praveen Kumar C?",
+    answer:
+      "Praveen Kumar C is a Full Stack Developer & Systems Architect currently working at Senchola Technology Solutions in Tiruchirappalli, Tamil Nadu, India. He specializes in building scalable B2B SaaS applications, enterprise WhatsApp CRM platforms, responsive corporate websites, and secure RESTful microservices.",
+  },
+  {
+    id: "faq-2",
+    question: "02. What technologies do you work with?",
+    answer:
+      "Praveen specializes in Java 21, Spring Boot 3, React.js, Next.js, TypeScript, Node.js & Express, MySQL, MongoDB with ACID transactions, Redis & BullMQ event queues, Socket.io, Docker containerization, and CMS development using WordPress and Elementor.",
+  },
+  {
+    id: "faq-3",
+    question: "03. Are you available for roles and consulting?",
+    answer:
+      "Yes, Praveen is available for full-time Full Stack Developer roles, B2B SaaS consulting, and technical web engineering collaborations. Reach out through the contact form or email djpraveenkumar5@gmail.com.",
+  },
+  {
+    id: "faq-4",
+    question: "04. What kinds of projects have you built?",
+    answer:
+      "Praveen has engineered enterprise WhatsApp CRM platforms (wacrm), Verna Construction corporate portals, multi-tenant B2B operations engines (NexusForce AI), blockchain counterfeit prevention systems, and AI-driven telemetry analytics applications.",
+  },
+  {
+    id: "faq-5",
+    question: "05. What is your educational background?",
+    answer:
+      "Praveen holds a Bachelor of Technology (B.Tech) in Information Technology from Mookambigai College of Engineering (Pudukkottai, Tamil Nadu) with a CGPA of 7.09, supplemented by intensive training in Full Stack Software Engineering.",
+  },
+  {
+    id: "faq-6",
+    question: "06. How can I contact you?",
+    answer:
+      "You can contact Praveen directly via email at djpraveenkumar5@gmail.com, call or WhatsApp at +91 8903164053, connect on LinkedIn at linkedin.com/in/praveen-kumar-full-stack-developer, or submit the contact form on this site.",
+  },
+];
+
 export const navLinks = [
   { id: "home", label: "Home" },
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
+  { id: "services", label: "Services" },
+  { id: "skills", label: "Stack" },
+  { id: "projects", label: "Work" },
   { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
+  { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contact" },
 ] as const;

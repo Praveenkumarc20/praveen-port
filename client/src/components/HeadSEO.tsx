@@ -10,8 +10,8 @@ interface HeadSEOProps {
 
 export function HeadSEO({
   title = `${profile.name} | Full Stack Developer & Systems Architect`,
-  description = `${profile.name} — Full Stack Developer based in ${profile.location}. Specializing in high-concurrency Node.js, Spring Boot, React.js, Redis, BullMQ, and MongoDB ACID multi-tenant architectures.`,
-  keywords = "Praveen Kumar C, Praveen Kumar, Full Stack Developer, Systems Architect, Node.js Developer, React Developer, Spring Boot Developer, Multi-Tenant Architecture, BullMQ, Redis, Tamil Nadu Developer",
+  description = `${profile.name} — Full Stack Developer & Systems Architect at Senchola Technology Solutions. Specializing in B2B SaaS, WhatsApp CRM, Java, Spring Boot, React.js, Next.js, TypeScript, and MySQL multi-tenant architectures.`,
+  keywords = "Praveen Kumar C, Praveen Kumar, Full Stack Developer, Systems Architect, Senchola Technology Solutions, WhatsApp CRM, wacrm, SaaS Product Engineer, Java Developer, Spring Boot, React Developer, Next.js Developer, Multi-Tenant Architecture, Tiruchirappalli Developer, Tamil Nadu Developer, Software Engineer Portfolio, MySQL, Redis, BullMQ",
   canonicalUrl = "https://praveenkumar.dev/",
 }: HeadSEOProps) {
   useEffect(() => {

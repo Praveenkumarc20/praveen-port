@@ -193,14 +193,14 @@ export function Hero() {
             aria-label="Primary Navigation"
             className="hidden md:flex items-center gap-7 text-sm text-[#a3a3a3]"
           >
-            <a href="#about" className="conf-nav-link">
-              About
+            <a href="#services" className="conf-nav-link">
+              Services
             </a>
             <a href="#skills" className="conf-nav-link">
-              Skills
+              Stack
             </a>
             <a href="#projects" className="conf-nav-link">
-              Projects
+              Work
             </a>
             <a href="#contact" className="conf-nav-link">
               Contact
@@ -252,7 +252,7 @@ export function Hero() {
           className="reveal-conf mt-8 max-w-[36rem] text-sm sm:text-base leading-[1.625] text-[#a3a3a3] text-balance"
           style={{ "--reveal-delay": "0.3s" } as React.CSSProperties}
         >
-          Specializing in engineering enterprise-grade multi-tenant web applications, RESTful microservices, and high-concurrency event-driven architectures with Node.js, Spring Boot, React, Redis, and MongoDB ACID transactions.
+          Full Stack Developer at Senchola Technology Solutions in Tiruchirappalli, Tamil Nadu, India. I build scalable B2B SaaS products, enterprise WhatsApp CRM platforms, and production web applications.
         </p>
 
         {/* Architectural Highlights Pills */}
@@ -264,10 +264,10 @@ export function Hero() {
             Multi-Tenant Architecture
           </span>
           <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-geist-mono">
-            BullMQ + Redis Event Queues
+            Multi-Tenant Systems
           </span>
           <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-geist-mono">
-            MongoDB ACID Transactions
+            RESTful Microservices
           </span>
         </div>
 

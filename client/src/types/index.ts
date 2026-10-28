@@ -40,6 +40,22 @@ export interface ContactForm {
   name: string;
   email: string;
   message: string;
+  phone?: string;
+  subject?: string;
+}
+
+export interface ServiceItem {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  icon: string;
+}
+
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
 }
 
 export type ContactStatus = "idle" | "submitting" | "success" | "error";

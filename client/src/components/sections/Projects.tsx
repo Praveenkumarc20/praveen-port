@@ -21,6 +21,7 @@ import { projects } from "@/data/content";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { Badge } from "@/components/ui/Badge";
+import { CornerAccent } from "@/components/ui/CornerAccent";
 
 const ICONS = {
   shield: ShieldCheck,
@@ -57,9 +58,9 @@ export function Projects() {
       <div className="section-container">
         <Reveal>
           <SectionHeading
-            eyebrow="Portfolio Showcase"
-            title="Creative & High-Performance Projects"
-            subtitle="Explore high-concurrency microservices, multi-tenant engines, and AI dashboards crafted with precision."
+            eyebrow="Selected Works"
+            title="Multi-Tenant Platforms, Enterprise CRM, Blockchain & AI Applications"
+            subtitle="Engineered for high concurrency, event-driven scalability, and production reliability."
           />
         </Reveal>
 
@@ -114,6 +115,8 @@ export function Projects() {
                   whileHover={{ y: -8 }}
                   className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-ink-800/80 p-7 backdrop-blur-md transition-all duration-300 hover:border-accent/50 hover:shadow-2xl hover:shadow-accent/10"
                 >
+                  <CornerAccent color="border-accent/30 group-hover:border-accent" />
+
                   {/* Subtle Top Gradient Bar */}
                   <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent/20 via-accent to-accent/20 opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
 

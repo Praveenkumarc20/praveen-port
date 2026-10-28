@@ -3,6 +3,7 @@ import { skills } from "@/data/content";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { SkillBar } from "@/components/ui/SkillBar";
+import { CornerAccent } from "@/components/ui/CornerAccent";
 
 const CATEGORIES = [
   { key: "frontend", label: "Frontend", icon: Layout },
@@ -18,9 +19,9 @@ export function Skills() {
       <div className="section-container">
         <Reveal>
           <SectionHeading
-            eyebrow="What I know"
-            title="Technical Skills"
-            subtitle="A full stack toolkit refined through training and real-world projects."
+            eyebrow="Tech Stack"
+            title="Tools & Technologies I Use to Design, Build, and Ship Software"
+            subtitle="Full-stack toolkit refined through production SaaS applications, CRM engineering, and client projects."
           />
         </Reveal>
 
@@ -30,7 +31,8 @@ export function Skills() {
             const list = skills.filter((s) => s.category === cat.key);
             return (
               <Reveal key={cat.key} delay={0.08 * ci}>
-                <div className="glass h-full rounded-2xl p-7 transition-colors hover:border-accent/30">
+                <div className="group relative glass h-full rounded-2xl p-7 transition-all duration-300 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5">
+                  <CornerAccent color="border-accent/30 group-hover:border-accent" />
                   <div className="mb-6 flex items-center gap-3">
                     <span className="rounded-xl bg-accent/10 p-2.5 text-accent">
                       <Icon size={22} />

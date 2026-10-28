@@ -11,6 +11,7 @@ import { education, experience } from "@/data/content";
 import type { TimelineItem } from "@/types";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { CornerAccent } from "@/components/ui/CornerAccent";
 
 export function Experience() {
   const [activeTab, setActiveTab] = useState<"all" | "work" | "education">("all");
@@ -182,6 +183,7 @@ function TimelineCard({
 
       {/* Card Content Container */}
       <div className="glass relative overflow-hidden rounded-2xl border border-white/10 bg-ink-800/80 p-6 sm:p-7 backdrop-blur-xl transition-all duration-300 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10">
+        <CornerAccent color="border-accent/30 group-hover:border-accent" />
         {/* Subtle Top Gradient Bar */}
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
 

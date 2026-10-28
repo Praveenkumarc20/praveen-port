@@ -3,6 +3,7 @@ import { BookOpen, Download, MapPin } from "lucide-react";
 import { coursework, profile } from "@/data/content";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
+import { CornerAccent } from "@/components/ui/CornerAccent";
 
 export function About() {
   return (
@@ -18,7 +19,8 @@ export function About() {
 
         <div className="grid items-center gap-12 lg:grid-cols-[2fr_3fr]">
           <Reveal direction="left" className="mx-auto w-full max-w-sm">
-            <div className="group relative">
+            <div className="group relative rounded-2xl p-1">
+              <CornerAccent color="border-accent" size="w-3.5 h-3.5" />
               <div className="absolute -inset-3 -z-10 rounded-2xl bg-gradient-to-tr from-accent/30 to-transparent opacity-0 blur-xl transition-opacity group-hover:opacity-100" />
               <img
                 src={profile.avatar}

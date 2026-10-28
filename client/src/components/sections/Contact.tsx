@@ -6,8 +6,9 @@ import { api } from "@/lib/api";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 import { SocialIcon } from "@/components/ui/SocialIcon";
+import { CornerAccent } from "@/components/ui/CornerAccent";
 
-const INITIAL_FORM: ContactForm = { name: "", email: "", message: "" };
+const INITIAL_FORM: ContactForm = { name: "", email: "", phone: "", subject: "", message: "" };
 
 const CONTACT_META = [
   { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
@@ -46,9 +47,9 @@ export function Contact() {
       <div className="section-container">
         <Reveal>
           <SectionHeading
-            eyebrow="Let's talk"
-            title="Contact Me"
-            subtitle="Have a project in mind or just want to say hi? Drop me a message."
+            eyebrow="Contact"
+            title="Let's Build Something Scalable Together"
+            subtitle="Available for full-time Full Stack Developer roles, B2B SaaS engineering, and technical collaborations."
           />
         </Reveal>
 
@@ -102,11 +103,12 @@ export function Contact() {
           </Reveal>
 
           <Reveal direction="right" delay={0.15}>
-            <form onSubmit={handleSubmit} aria-label="Send message form" className="glass space-y-5 rounded-2xl p-7 sm:p-9">
+            <form onSubmit={handleSubmit} aria-label="Send message form" className="group relative glass space-y-5 rounded-2xl p-7 sm:p-9">
+              <CornerAccent color="border-accent/30 group-hover:border-accent" />
               <div className="grid gap-5 sm:grid-cols-2">
                 <div>
                   <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-300">
-                    Name
+                    Full Name
                   </label>
                   <input
                     id="name"
@@ -122,7 +124,7 @@ export function Contact() {
                 </div>
                 <div>
                   <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-300">
-                    Email
+                    Email Address
                   </label>
                   <input
                     id="email"
@@ -133,6 +135,37 @@ export function Contact() {
                     value={form.email}
                     onChange={(e) => updateField("email", e.target.value)}
                     placeholder="you@example.com"
+                    className="w-full rounded-lg border border-white/10 bg-ink-900/70 px-4 py-3 text-white outline-none transition-colors placeholder:text-slate-600 focus:border-accent"
+                  />
+                </div>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="phone" className="mb-2 block text-sm font-medium text-slate-300">
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={form.phone || ""}
+                    onChange={(e) => updateField("phone", e.target.value)}
+                    placeholder="+91 ..."
+                    className="w-full rounded-lg border border-white/10 bg-ink-900/70 px-4 py-3 text-white outline-none transition-colors placeholder:text-slate-600 focus:border-accent"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="subject" className="mb-2 block text-sm font-medium text-slate-300">
+                    Subject
+                  </label>
+                  <input
+                    id="subject"
+                    name="subject"
+                    type="text"
+                    value={form.subject || ""}
+                    onChange={(e) => updateField("subject", e.target.value)}
+                    placeholder="Project Inquiry / Job Opportunity"
                     className="w-full rounded-lg border border-white/10 bg-ink-900/70 px-4 py-3 text-white outline-none transition-colors placeholder:text-slate-600 focus:border-accent"
                   />
                 </div>
