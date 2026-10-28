@@ -9,10 +9,20 @@ import { Projects } from "@/components/sections/Projects";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { HeadSEO } from "@/components/HeadSEO";
+import MouseEffects from "@/components/ui/MouseEffects";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-ink-900 text-white selection:bg-accent selection:text-ink-900">
+    <div className="relative min-h-screen bg-ink-900 text-white selection:bg-accent selection:text-ink-900">
+      {/* Originkit Dynamic Click FX (Sniper, Crosshair, Rings, Burst, Particles, Wavy) */}
+      <MouseEffects
+        interactionMode="sniper"
+        color="#22d3ee"
+        duration={0.35}
+        effectSize={90}
+        strokeWidth={2}
+        showDock={true}
+      />
       <HeadSEO />
       <Navbar />
       <main id="main-content">
