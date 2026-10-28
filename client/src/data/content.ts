@@ -36,37 +36,65 @@ export const coursework = [
 ];
 
 export const skills: Skill[] = [
-  // Frontend
+  // 1. Programming
+  { name: "Python", icon: "python", category: "programming" },
+  { name: "Java", icon: "java", category: "programming" },
+  { name: "SQL", icon: "sql", category: "programming" },
+
+  // 2. Generative AI & LLMs
+  { name: "Generative AI", icon: "generative", category: "genai" },
+  { name: "Large Language Models (LLMs)", icon: "llm", category: "genai" },
+  { name: "Prompt Engineering", icon: "prompt", category: "genai" },
+  { name: "LLM API Integration", icon: "llmapi", category: "genai" },
+  { name: "Structured Outputs", icon: "structured", category: "genai" },
+  { name: "Function Calling / Tool Calling", icon: "function", category: "genai" },
+
+  // 3. RAG & AI Applications
+  { name: "Retrieval-Augmented Generation (RAG)", icon: "rag", category: "rag" },
+  { name: "Text Embeddings", icon: "embedding", category: "rag" },
+  { name: "Semantic Search", icon: "semantic", category: "rag" },
+  { name: "Vector Databases", icon: "vector", category: "rag" },
+  { name: "Document Processing", icon: "document", category: "rag" },
+  { name: "AI Chatbot Development", icon: "chatbot", category: "rag" },
+
+  // 4. AI Agents & Frameworks
+  { name: "LangChain", icon: "langchain", category: "agents" },
+  { name: "LangGraph", icon: "langgraph", category: "agents" },
+  { name: "AI Agent Development", icon: "agent", category: "agents" },
+  { name: "Workflow Automation", icon: "workflow", category: "agents" },
+
+  // 5. Backend Development
+  { name: "FastAPI", icon: "fastapi", category: "backend" },
+  { name: "REST API Development", icon: "rest", category: "backend" },
+  { name: "Spring Boot", icon: "spring", category: "backend" },
+  { name: "API Integration", icon: "apiintegration", category: "backend" },
+  { name: "Node.js", icon: "node", category: "backend" },
+  { name: "Express.js", icon: "express", category: "backend" },
+
+  // 6. Databases
+  { name: "PostgreSQL", icon: "postgres", category: "database" },
+  { name: "MySQL", icon: "mysql", category: "database" },
+  { name: "Vector Databases", icon: "vector", category: "database" },
+  { name: "MongoDB", icon: "mongo", category: "database" },
+  { name: "Redis", icon: "redis", category: "database" },
+
+  // 7. Deployment & Tools
+  { name: "Git & GitHub", icon: "github", category: "deployment" },
+  { name: "Docker", icon: "docker", category: "deployment" },
+  { name: "Linux", icon: "linux", category: "deployment" },
+  { name: "Cloud Deployment", icon: "cloud", category: "deployment" },
+  { name: "API Testing", icon: "testing", category: "deployment" },
+  { name: "Postman", icon: "postman", category: "deployment" },
+  { name: "Vercel", icon: "vercel", category: "deployment" },
+
+  // 8. Frontend & Web
   { name: "React", icon: "react", category: "frontend" },
   { name: "Next.js", icon: "next", category: "frontend" },
   { name: "TypeScript", icon: "typescript", category: "frontend" },
   { name: "JavaScript", icon: "javascript", category: "frontend" },
   { name: "Tailwind CSS", icon: "tailwind", category: "frontend" },
-  { name: "HTML5", icon: "html", category: "frontend" },
   { name: "WordPress", icon: "wordpress", category: "frontend" },
   { name: "Elementor", icon: "elementor", category: "frontend" },
-
-  // Backend
-  { name: "Java", icon: "java", category: "backend" },
-  { name: "Spring Boot", icon: "spring", category: "backend" },
-  { name: "Node.js", icon: "node", category: "backend" },
-  { name: "Express.js", icon: "express", category: "backend" },
-  { name: "Python", icon: "python", category: "backend" },
-  { name: "PHP", icon: "php", category: "backend" },
-
-  // Database & Middleware
-  { name: "MySQL", icon: "mysql", category: "database" },
-  { name: "MongoDB", icon: "mongo", category: "database" },
-  { name: "Redis", icon: "redis", category: "database" },
-  { name: "Socket.io", icon: "socket", category: "database" },
-  { name: "BullMQ", icon: "bullmq", category: "database" },
-
-  // Tools & DevOps
-  { name: "Docker", icon: "docker", category: "tools" },
-  { name: "Git", icon: "git", category: "tools" },
-  { name: "GitHub", icon: "github", category: "tools" },
-  { name: "Postman", icon: "postman", category: "tools" },
-  { name: "Vercel", icon: "vercel", category: "tools" },
 ];
 
 export const experience: TimelineItem[] = [
