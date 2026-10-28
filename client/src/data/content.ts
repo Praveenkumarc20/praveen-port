@@ -6,9 +6,9 @@ export const profile = {
   role: "Full Stack Developer",
   taglines: [
     "Full Stack Developer",
+    "SaaS Product Engineer",
     "Multi-Tenant Architect",
-    "Event-Driven Systems Engineer",
-    "Java & Node.js Developer"
+    "Java & Spring Boot Developer"
   ],
   email: "djpraveenkumar5@gmail.com",
   phone: "+91 8903164053",
@@ -17,13 +17,14 @@ export const profile = {
   logo: "/images/logo.png",
   heroImage: "/images/profile-headshot.png",
   about: [
-    "Full Stack Developer at Senchola Technology Solutions (Tiruchirappalli), contributing to production website development, CRM platforms, backend integrations, and application maintenance.",
-    "Hands-on expertise engineering key business solutions including WhatsApp CRM (wacrm), Verna Construction corporate portal, Trichypreneurs web platforms, and custom CRM workflows using React.js, Java/Spring Boot, Node.js, and MySQL relational persistence.",
-    "Experienced in building responsive user interfaces, integrating secure RESTful APIs, optimizing database queries, and providing reliable IT support and application troubleshooting across production environments."
+    "Full Stack Developer at Senchola Technology Solutions (Tiruchirappalli), actively building scalable B2B SaaS products, enterprise CRM platforms, backend integrations, and production web applications.",
+    "Hands-on expertise engineering multi-tenant SaaS solutions including the WhatsApp CRM (wacrm) platform, Verna Construction corporate portal, Trichypreneurs web systems, and custom business CRM workflows using React.js, Java/Spring Boot, Node.js, and MySQL relational persistence.",
+    "Experienced in designing multi-tenant data schemas, integrating secure RESTful APIs, optimizing database queries, and providing reliable IT support and application troubleshooting across production SaaS environments."
   ],
 };
 
 export const coursework = [
+  "B2B SaaS Engineering",
   "Full Stack Web Dev",
   "Multi-Tenant Architecture",
   "Event-Driven Systems",
@@ -65,12 +66,14 @@ export const skills: Skill[] = [
 export const experience: TimelineItem[] = [
   {
     id: "senchola-fullstack",
-    title: "Full Stack Developer",
+    title: "Full Stack Developer — SaaS & Web Solutions",
     subtitle: "Senchola Technology Solutions · Tiruchirappalli, Tamil Nadu",
     period: "Aug 2026 – Present",
     description:
-      "Working as a Full Stack Developer contributing to business websites, enterprise CRM solutions, and IT support services. Spearhead frontend UI development and backend REST API integrations for WhatsApp CRM (wacrm) and custom business CRM workflows. Customize and maintain responsive client web portals including Verna Construction and Trichypreneurs using modern web frameworks and WordPress/Elementor. Manage MySQL database operations, application performance optimization, debugging, and continuous IT infrastructure maintenance.",
+      "Working as a Full Stack Developer architecting and building scalable B2B SaaS products, enterprise CRM solutions, and business websites. Spearhead frontend UI development and backend REST API integrations for multi-tenant SaaS platforms, notably WhatsApp CRM (wacrm) and custom business CRM workflows. Customize and maintain responsive client web portals including Verna Construction and Trichypreneurs using modern web frameworks and WordPress/Elementor. Manage MySQL database operations, tenant data isolation, application performance optimization, debugging, and continuous IT infrastructure maintenance.",
     tags: [
+      "B2B SaaS Products",
+      "Multi-Tenant Architecture",
       "Full Stack Development",
       "WhatsApp CRM",
       "Java & Spring Boot",
