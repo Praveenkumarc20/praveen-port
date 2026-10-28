@@ -37,6 +37,7 @@ const CATEGORIES = [
   { id: "multi-tenant", label: "Multi-Tenant & Event-Driven" },
   { id: "blockchain", label: "Blockchain & Security" },
   { id: "ai", label: "AI & Analytics" },
+  { id: "web-design", label: "Web Design & CMS" },
 ] as const;
 
 export function Projects() {

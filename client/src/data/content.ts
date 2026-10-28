@@ -36,10 +36,12 @@ export const coursework = [
 
 export const skills: Skill[] = [
   // Frontend
-  { name: "React.js", level: 90, category: "frontend" },
+  { name: "React.js & Next.js", level: 90, category: "frontend" },
+  { name: "TypeScript", level: 88, category: "frontend" },
   { name: "JavaScript (ES6+)", level: 92, category: "frontend" },
-  { name: "Tailwind CSS", level: 88, category: "frontend" },
-  { name: "HTML5 & CSS3", level: 95, category: "frontend" },
+  { name: "Tailwind CSS & CSS3", level: 90, category: "frontend" },
+  { name: "HTML5 & Web Standards", level: 95, category: "frontend" },
+  { name: "WordPress & Elementor", level: 86, category: "frontend" },
   
   // Backend
   { name: "Node.js & Express.js", level: 92, category: "backend" },
@@ -114,6 +116,32 @@ export const projects: Project[] = [
       "Meta WhatsApp Business API integration with secure Webhook signature verification for real-time event ingestion",
       "Normalized MySQL relational schema managed via Spring Data JPA with transactional consistency",
       "Interactive React.js dashboard for Kanban sales pipelines, contact tagging, and campaign analytics",
+    ],
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/Praveenkumarc20/praveen-port" },
+    ],
+  },
+  {
+    id: "verna-construction",
+    title: "Verna Construction Corporate Website",
+    category: "web-design",
+    description:
+      "Designed and developed a responsive corporate web portal for Verna Construction featuring customized Astra theme architecture, Elementor page hierarchies, and ElementsKit UI components. Built with brand identity standards (deep green #004741 and cream #F0EDE4), transparent header navigation, custom CSS layout refinements, and Contact Form 7 integration for customer inquiries.",
+    icon: "globe",
+    tags: ["WordPress", "Elementor", "Astra Theme", "ElementsKit", "Custom CSS", "Responsive Design", "UI/UX", "Contact Form 7"],
+    featured: true,
+    metrics: [
+      { label: "Platform", value: "WordPress CMS" },
+      { label: "Design System", value: "Elementor + Astra" },
+      { label: "Styling", value: "Custom CSS & UI/UX" },
+      { label: "Lead Gen", value: "Contact Form 7" },
+    ],
+    architectureHighlights: [
+      "Customized Astra theme and ElementsKit transparent header navigation with sticky scroll transitions",
+      "Engineered responsive multi-section page layouts with Elementor maintaining visual hierarchy",
+      "Developed custom CSS overrides for brand typography, spacing, and two-tone color palette (#004741 & #F0EDE4)",
+      "Configured Contact Form 7 with server-side validation and automated email notification dispatch",
+      "Optimized mobile responsiveness and cross-browser rendering across desktop, tablet, and mobile breakpoints",
     ],
     links: [
       { label: "GitHub Repository", href: "https://github.com/Praveenkumarc20/praveen-port" },

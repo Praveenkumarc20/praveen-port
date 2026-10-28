@@ -16,7 +16,7 @@ export interface TimelineItem {
 export interface Project {
   id: string;
   title: string;
-  category: "multi-tenant" | "blockchain" | "ai";
+  category: "multi-tenant" | "blockchain" | "ai" | "web-design";
   description: string;
   icon: "shield" | "flame" | "map" | "globe" | "cpu" | "layers" | "activity";
   tags: string[];
