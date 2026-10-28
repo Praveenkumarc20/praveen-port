@@ -17,9 +17,9 @@ export const profile = {
   logo: "/images/logo.png",
   heroImage: "/images/profile-headshot.png",
   about: [
-    "Full Stack Developer specializing in building scalable, event-driven multi-tenant web applications and RESTful microservices.",
-    "Proficient in implementing high-concurrency architectures using Node.js, Express, Java/Spring Boot, React.js, Redis, and MongoDB ACID transactions.",
-    "Hands-on experience with asynchronous background event queues (BullMQ + Redis), real-time WebSockets (Socket.io), and containerized deployment via Docker, with a strong track record of building automated CI/CD pipelines, interactive dashboards, and AI-powered telemetry endpoints."
+    "Full Stack Developer at Senchola Technology Solutions (Tiruchirappalli), contributing to production website development, CRM platforms, backend integrations, and application maintenance.",
+    "Hands-on expertise engineering key business solutions including WhatsApp CRM (wacrm), Verna Construction corporate portal, Trichypreneurs web platforms, and custom CRM workflows using React.js, Java/Spring Boot, Node.js, and MySQL relational persistence.",
+    "Experienced in building responsive user interfaces, integrating secure RESTful APIs, optimizing database queries, and providing reliable IT support and application troubleshooting across production environments."
   ],
 };
 
@@ -64,10 +64,28 @@ export const skills: Skill[] = [
 
 export const experience: TimelineItem[] = [
   {
+    id: "senchola-fullstack",
+    title: "Full Stack Developer",
+    subtitle: "Senchola Technology Solutions · Tiruchirappalli, Tamil Nadu",
+    period: "Aug 2026 – Present",
+    description:
+      "Working as a Full Stack Developer contributing to business websites, enterprise CRM solutions, and IT support services. Spearhead frontend UI development and backend REST API integrations for WhatsApp CRM (wacrm) and custom business CRM workflows. Customize and maintain responsive client web portals including Verna Construction and Trichypreneurs using modern web frameworks and WordPress/Elementor. Manage MySQL database operations, application performance optimization, debugging, and continuous IT infrastructure maintenance.",
+    tags: [
+      "Full Stack Development",
+      "WhatsApp CRM",
+      "Java & Spring Boot",
+      "React.js",
+      "WordPress & Elementor",
+      "MySQL",
+      "REST APIs",
+      "IT Support & Maintenance",
+    ],
+  },
+  {
     id: "process-associate",
     title: "Process Associate – E-Pub Developer & Data Annotator",
     subtitle: "Tamil Nadu, India",
-    period: "Feb 2026 – Present",
+    period: "Feb 2026 – Jul 2026",
     description:
       "Developed and validated ePub 2/3 digital publications, maintaining 100% compliance with web standards and metadata accuracy. Annotated and QA-reviewed AI/ML training datasets, enhancing data quality for machine learning workflows. Led a team segment in medical billing data operations, consistently meeting productivity targets and workflow compliance.",
     tags: ["ePub 2/3", "AI/ML Data QA", "Data Annotation", "Standards Compliance", "Medical Billing"],
