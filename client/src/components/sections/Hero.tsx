@@ -231,7 +231,7 @@ export function Hero() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
               <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
             </span>
-            Available for Roles &amp; Consulting · Tamil Nadu, India
+            Available for Roles &amp; Consulting · Tiruchirappalli, Tamil Nadu, India
           </span>
         </p>
 
@@ -243,7 +243,7 @@ export function Hero() {
           Praveen Kumar C
           <br />
           <span className="text-white/80 font-normal text-3xl sm:text-5xl lg:text-6xl tracking-[-0.04em]">
-            Full Stack Developer &amp; Systems Architect
+            Full Stack Developer &amp; Generative AI Engineer
           </span>
         </h1>
 
@@ -252,7 +252,7 @@ export function Hero() {
           className="reveal-conf mt-8 max-w-[36rem] text-sm sm:text-base leading-[1.625] text-[#a3a3a3] text-balance"
           style={{ "--reveal-delay": "0.3s" } as React.CSSProperties}
         >
-          Full Stack Developer at Senchola Technology Solutions in Tiruchirappalli, Tamil Nadu, India. I build scalable B2B SaaS products, enterprise WhatsApp CRM platforms, and production web applications.
+          Full Stack Developer &amp; Generative AI Engineer at Senchola Technology Solutions in Tiruchirappalli, Tamil Nadu, India. Building autonomous AI agents, enterprise WhatsApp CRM platforms, FastAPI &amp; Spring Boot microservices, and modern web applications.
         </p>
 
         {/* Architectural Highlights Pills */}
@@ -260,15 +260,10 @@ export function Hero() {
           className="reveal-conf mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-neutral-300"
           style={{ "--reveal-delay": "0.35s" } as React.CSSProperties}
         >
-          <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-geist-mono">
-            Multi-Tenant Architecture
-          </span>
-          <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-geist-mono">
-            Multi-Tenant Systems
-          </span>
-          <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-geist-mono">
-            RESTful Microservices
-          </span>
+          <span className="rounded-full border border-accent/20 bg-accent/5 px-3 py-1 font-geist-mono text-accent">Generative AI &amp; LangGraph</span>
+          <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-geist-mono">FastAPI &amp; Spring Boot</span>
+          <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-geist-mono">React.js &amp; Next.js 14</span>
+          <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-geist-mono">Multi-Tenant SaaS</span>
         </div>
 
         {/* Action CTAs */}

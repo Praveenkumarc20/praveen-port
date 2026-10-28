@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  Bot,
-  Brain,
-  Code2,
   Cpu,
   Database,
   Layout,
@@ -16,64 +13,56 @@ import { Reveal } from "@/components/ui/Reveal";
 import { TechIcon } from "@/components/ui/TechIcon";
 import { CornerAccent } from "@/components/ui/CornerAccent";
 
-const CATEGORIES = [
+const DOMAINS = [
   {
-    key: "genai",
-    label: "Generative AI & LLMs",
+    key: "ai",
+    label: "Artificial Intelligence & Generative AI",
+    shortLabel: "AI & GenAI",
     icon: Sparkles,
-    desc: "Foundation models, prompt engineering, structured outputs & tool calling",
-  },
-  {
-    key: "agents",
-    label: "AI Agents & Frameworks",
-    icon: Bot,
-    desc: "LangChain, LangGraph, autonomous agent architecture & workflows",
-  },
-  {
-    key: "rag",
-    label: "RAG & AI Applications",
-    icon: Brain,
-    desc: "Semantic search, text embeddings, vector retrieval & AI assistants",
+    badge: "LLMs, Agents & RAG",
+    desc: "Autonomous AI agents, LangChain, LangGraph stateful multi-agent workflows, Retrieval-Augmented Generation (RAG), vector database search, prompt engineering, structured outputs, and tool calling.",
   },
   {
     key: "backend",
-    label: "Backend Development",
+    label: "Backend Engineering & APIs",
+    shortLabel: "Backend & APIs",
     icon: Cpu,
-    desc: "FastAPI, Spring Boot, RESTful microservices & API integrations",
-  },
-  {
-    key: "programming",
-    label: "Programming Languages",
-    icon: Code2,
-    desc: "Python, Java, SQL & core system logic",
-  },
-  {
-    key: "database",
-    label: "Databases & Storage",
-    icon: Database,
-    desc: "PostgreSQL, MySQL, Vector DBs, MongoDB & caching",
-  },
-  {
-    key: "deployment",
-    label: "Deployment & Tools",
-    icon: Terminal,
-    desc: "Docker, Linux, Git/GitHub, Cloud deployment & API testing",
+    badge: "Microservices & Runtimes",
+    desc: "High-concurrency microservices, async RESTful backends, and cloud API integrations built with Python (FastAPI), Java (Spring Boot 3), and Node.js (Express).",
   },
   {
     key: "frontend",
-    label: "Frontend & Web",
+    label: "Frontend & Web Engineering",
+    shortLabel: "Frontend & Web",
     icon: Layout,
-    desc: "React, Next.js, TypeScript, Tailwind CSS & WordPress/Elementor",
+    badge: "Client Interfaces & CMS",
+    desc: "Modern responsive web applications, interactive dashboards, and corporate portals engineered with React.js, Next.js, TypeScript, Tailwind CSS, and WordPress/Elementor.",
+  },
+  {
+    key: "database",
+    label: "Databases & Data Storage",
+    shortLabel: "Databases & Storage",
+    icon: Database,
+    badge: "Relational, Vector & Cache",
+    desc: "Enterprise data persistence, relational indexing, ACID compliance, and low-latency caching using PostgreSQL, MySQL, Vector Databases, MongoDB, and Redis.",
+  },
+  {
+    key: "tools",
+    label: "Tools, DevOps & Cloud Technologies",
+    shortLabel: "Tools & DevOps",
+    icon: Terminal,
+    badge: "Deployment & CI/CD",
+    desc: "Containerized deployment pipelines, Linux server administration, version control, API testing, and edge hosting with Docker, Linux, Git/GitHub, Postman, and Vercel.",
   },
 ] as const;
 
 export function Skills() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [activeDomain, setActiveDomain] = useState<string>("all");
 
-  const visibleCategories =
-    activeCategory === "all"
-      ? CATEGORIES
-      : CATEGORIES.filter((c) => c.key === activeCategory);
+  const visibleDomains =
+    activeDomain === "all"
+      ? DOMAINS
+      : DOMAINS.filter((d) => d.key === activeDomain);
 
   return (
     <section
@@ -88,98 +77,135 @@ export function Skills() {
       <div className="section-container">
         <Reveal>
           <SectionHeading
-            eyebrow="Skills & Stack"
-            title="Generative AI, AI Agents, Full-Stack & System Architecture"
-            subtitle="Hands-on toolkit spanning LLM integrations, RAG pipelines, LangChain/LangGraph autonomous agents, and enterprise production engineering."
+            eyebrow="Technical Stack & Expertise"
+            title="Generative AI, Backend, Frontend, Databases & Cloud Tools"
+            subtitle="Categorized engineering toolkit spanning autonomous AI agent architecture, scalable REST microservices, responsive web portals, and enterprise multi-tenant databases."
           />
         </Reveal>
 
-        {/* Filter Navigation Tabs */}
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-2">
+        {/* Domain Navigation Tabs */}
+        <div className="mb-12 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
           <button
-            onClick={() => setActiveCategory("all")}
-            className={`rounded-full px-4 py-2 text-xs font-medium transition-all duration-200 ${
-              activeCategory === "all"
-                ? "bg-accent text-ink-900 font-semibold shadow-lg shadow-accent/25"
-                : "border border-white/10 bg-ink-900/60 text-slate-300 hover:border-accent/40 hover:text-white"
+            onClick={() => setActiveDomain("all")}
+            className={`rounded-full px-4 py-2 text-xs font-semibold tracking-wide transition-all duration-200 ${
+              activeDomain === "all"
+                ? "bg-accent text-ink-900 shadow-lg shadow-accent/25 ring-2 ring-accent"
+                : "border border-white/10 bg-ink-900/70 text-slate-300 hover:border-accent/40 hover:text-white"
             }`}
           >
-            All Skills ({skills.length})
+            All Domains ({skills.length}+ Tech)
           </button>
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.key}
-              onClick={() => setActiveCategory(cat.key)}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${
-                activeCategory === cat.key
-                  ? "bg-accent text-ink-900 font-semibold shadow-lg shadow-accent/25"
-                  : "border border-white/10 bg-ink-900/60 text-slate-300 hover:border-accent/40 hover:text-white"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+          {DOMAINS.map((domain) => {
+            const Icon = domain.icon;
+            const count = skills.filter((s) => s.category === domain.key).length;
+            const isActive = activeDomain === domain.key;
+            return (
+              <button
+                key={domain.key}
+                onClick={() => setActiveDomain(domain.key)}
+                className={`flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all duration-200 ${
+                  isActive
+                    ? "bg-accent text-ink-900 font-semibold shadow-lg shadow-accent/25 ring-2 ring-accent"
+                    : "border border-white/10 bg-ink-900/70 text-slate-300 hover:border-accent/40 hover:text-white"
+                }`}
+              >
+                <Icon size={14} className={isActive ? "text-ink-900" : "text-accent"} />
+                <span>{domain.shortLabel}</span>
+                <span
+                  className={`rounded-full px-1.5 py-0.2 text-[10px] font-bold ${
+                    isActive
+                      ? "bg-ink-900/20 text-ink-900"
+                      : "bg-white/5 text-slate-400"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid gap-7 md:grid-cols-2">
+        {/* Individual Domain Containers (Thani Thaniya) */}
+        <div className="space-y-10">
           <AnimatePresence mode="popLayout">
-            {visibleCategories.map((cat, ci) => {
-              const Icon = cat.icon;
-              const list = skills.filter((s) => s.category === cat.key);
+            {visibleDomains.map((domain, di) => {
+              const Icon = domain.icon;
+              const domainSkills = skills.filter((s) => s.category === domain.key);
               return (
-                <motion.div
-                  key={cat.key}
+                <motion.article
+                  key={domain.key}
                   layout
-                  initial={{ opacity: 0, y: 15 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  transition={{ duration: 0.3, delay: ci * 0.04 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.35, delay: di * 0.05 }}
+                  className="group relative glass rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/5"
+                  itemScope
+                  itemType="https://schema.org/ItemList"
                 >
-                  <div className="group relative glass h-full rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5">
-                    <CornerAccent color="border-accent/30 group-hover:border-accent" />
+                  <CornerAccent color="border-accent/30 group-hover:border-accent" />
 
-                    {/* Category Header */}
-                    <div className="mb-5 flex items-center justify-between border-b border-white/5 pb-4">
-                      <div className="flex items-center gap-3">
-                        <span className="rounded-xl bg-accent/10 p-2.5 text-accent shadow-inner">
-                          <Icon size={22} />
-                        </span>
-                        <div>
-                          <h3 className="text-base sm:text-lg font-semibold text-white tracking-tight">
-                            {cat.label}
-                          </h3>
-                          <p className="text-xs text-slate-400">{cat.desc}</p>
-                        </div>
-                      </div>
-                      <span className="hidden sm:inline-flex rounded-full border border-accent/20 bg-accent/5 px-2.5 py-1 text-[11px] font-medium text-accent">
-                        {list.length} Skills
+                  {/* Domain Header */}
+                  <div className="mb-6 flex flex-col gap-4 border-b border-white/5 pb-5 md:flex-row md:items-center md:justify-between">
+                    <div className="flex items-start gap-3.5">
+                      <span className="mt-0.5 rounded-xl bg-accent/10 p-3 text-accent shadow-inner">
+                        <Icon size={24} />
                       </span>
-                    </div>
-
-                    {/* Tech Logo Grid */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {list.map((skill, si) => (
-                        <motion.div
-                          key={skill.name}
-                          initial={{ opacity: 0, y: 8 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.25, delay: si * 0.03 }}
-                          whileHover={{ y: -3, scale: 1.02 }}
-                          className="group/item relative flex flex-col items-center justify-center p-3.5 rounded-xl border border-white/5 bg-ink-900/60 hover:border-accent/40 hover:bg-ink-900/90 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300 cursor-default"
-                        >
-                          <div className="transition-transform duration-300 group-hover/item:scale-110 flex items-center justify-center h-10 w-10">
-                            <TechIcon name={skill.icon || skill.name} size={32} />
-                          </div>
-                          <span className="mt-2 text-xs font-medium text-slate-300 group-hover/item:text-white text-center tracking-tight leading-snug transition-colors">
-                            {skill.name}
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h3
+                            itemProp="name"
+                            className="text-lg sm:text-xl font-bold text-white tracking-tight"
+                          >
+                            {domain.label}
+                          </h3>
+                          <span className="rounded-full border border-accent/20 bg-accent/10 px-2.5 py-0.5 text-[10px] font-semibold text-accent uppercase tracking-wider">
+                            {domain.badge}
                           </span>
-                        </motion.div>
-                      ))}
+                        </div>
+                        <p className="mt-1 text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
+                          {domain.desc}
+                        </p>
+                      </div>
                     </div>
+                    <span className="self-start md:self-center shrink-0 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300">
+                      {domainSkills.length} Technologies
+                    </span>
                   </div>
-                </motion.div>
+
+                  {/* Domain Tech Logo Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4">
+                    {domainSkills.map((skill, si) => (
+                      <motion.div
+                        key={skill.name}
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.25, delay: si * 0.02 }}
+                        whileHover={{ y: -3, scale: 1.02 }}
+                        className="group/item relative flex flex-col items-center justify-center p-4 rounded-xl border border-white/5 bg-ink-900/70 hover:border-accent/40 hover:bg-ink-900/95 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 cursor-default"
+                        itemProp="itemListElement"
+                        itemScope
+                        itemType="https://schema.org/Thing"
+                      >
+                        <div className="transition-transform duration-300 group-hover/item:scale-110 flex items-center justify-center h-11 w-11">
+                          <TechIcon name={skill.icon || skill.name} size={34} />
+                        </div>
+                        <span
+                          itemProp="name"
+                          className="mt-2.5 text-xs font-semibold text-slate-200 group-hover/item:text-white text-center tracking-tight leading-snug transition-colors"
+                        >
+                          {skill.name}
+                        </span>
+                        {skill.badge && (
+                          <span className="mt-1 text-[10px] text-accent/80 font-mono tracking-tight text-center">
+                            {skill.badge}
+                          </span>
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.article>
               );
             })}
           </AnimatePresence>

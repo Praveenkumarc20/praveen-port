@@ -1,17 +1,8 @@
 export interface Skill {
   name: string;
   icon?: string;
-  category:
-    | "programming"
-    | "genai"
-    | "rag"
-    | "agents"
-    | "backend"
-    | "database"
-    | "deployment"
-    | "tools"
-    | "frontend"
-    | string;
+  category: "ai" | "backend" | "frontend" | "database" | "tools" | string;
+  badge?: string;
   level?: number;
 }
 

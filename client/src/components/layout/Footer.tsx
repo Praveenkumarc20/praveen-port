@@ -7,8 +7,8 @@ export function Footer() {
     <footer aria-label="Page Footer" className="border-t border-white/10 bg-ink-800/60">
       <div className="section-container flex flex-col items-center gap-6 py-10 sm:flex-row sm:justify-between">
         <p className="text-sm text-slate-400">
-          © {new Date().getFullYear()} <span className="text-white">{profile.name}</span>. Full Stack Developer & Multi-Tenant Systems Architect. Crafted with{" "}
-          <Heart size={14} className="inline text-accent" fill="currentColor" aria-hidden="true" /> using React & TypeScript.
+          © {new Date().getFullYear()} <span className="text-white">{profile.name}</span>. Full Stack Developer &amp; Generative AI Engineer · Tiruchirappalli, Tamil Nadu. Crafted with{" "}
+          <Heart size={14} className="inline text-accent" fill="currentColor" aria-hidden="true" /> using React, Next.js &amp; TypeScript.
         </p>
 
         <div className="flex items-center gap-3">

@@ -9,9 +9,9 @@ interface HeadSEOProps {
 }
 
 export function HeadSEO({
-  title = `${profile.name} | Full Stack Developer & Systems Architect`,
-  description = `${profile.name} — Full Stack Developer & Systems Architect at Senchola Technology Solutions. Specializing in B2B SaaS, WhatsApp CRM, Java, Spring Boot, React.js, Next.js, TypeScript, and MySQL multi-tenant architectures.`,
-  keywords = "Praveen Kumar C, Praveen Kumar, Full Stack Developer, Systems Architect, Senchola Technology Solutions, WhatsApp CRM, wacrm, SaaS Product Engineer, Java Developer, Spring Boot, React Developer, Next.js Developer, Multi-Tenant Architecture, Tiruchirappalli Developer, Tamil Nadu Developer, Software Engineer Portfolio, MySQL, Redis, BullMQ",
+  title = `${profile.name} | Full Stack Developer & Generative AI Engineer | Tiruchirappalli, Tamil Nadu`,
+  description = `${profile.name} — Full Stack Developer & Generative AI Engineer at Senchola Technology Solutions in Tiruchirappalli, Tamil Nadu, India. Specializing in Python, FastAPI, Java, Spring Boot, React.js, Next.js, LangChain, LangGraph, RAG, PostgreSQL, and Multi-Tenant SaaS systems.`,
+  keywords = "Praveen Kumar C, Praveen Kumar, Full Stack Developer Tiruchirappalli, Generative AI Engineer India, AI Agent Developer, LangChain, LangGraph, RAG Systems, Python Developer, FastAPI, Java Developer, Spring Boot 3, React Developer, Next.js Developer, Multi-Tenant SaaS Engineer, Senchola Technology Solutions, WhatsApp CRM, wacrm, PostgreSQL, MySQL, Docker, Linux, Tamil Nadu Developer, Software Engineer Portfolio",
   canonicalUrl = "https://praveenkumar.dev/",
 }: HeadSEOProps) {
   useEffect(() => {

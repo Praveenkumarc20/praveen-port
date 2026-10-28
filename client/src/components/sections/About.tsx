@@ -13,7 +13,7 @@ export function About() {
           <SectionHeading
             eyebrow="Who I am"
             title="About Me"
-            subtitle="Full Stack Developer specializing in event-driven multi-tenant applications and RESTful microservices."
+            subtitle="Full Stack Developer & Generative AI Engineer specializing in autonomous AI agents, RAG pipelines, FastAPI, Spring Boot, React, and multi-tenant systems based in Tiruchirappalli, Tamil Nadu."
           />
         </Reveal>
 

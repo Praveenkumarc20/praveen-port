@@ -30,7 +30,7 @@ export function Services() {
           <SectionHeading
             eyebrow="What I Do"
             title="End-to-End Engineering, From Architecture to Shipped Product"
-            subtitle="Specializing in scalable B2B SaaS products, enterprise CRM platforms, and dependable production web systems."
+            subtitle="Specializing in Generative AI architectures, autonomous AI agents, enterprise B2B SaaS, and high-concurrency production web systems."
           />
         </Reveal>
 
@@ -48,36 +48,33 @@ export function Services() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -6 }}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-ink-800/80 p-7 backdrop-blur-xl transition-all duration-300 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10"
+                className="group relative glass rounded-2xl p-8 transition-all duration-300 hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/5"
               >
                 <CornerAccent color="border-accent/30 group-hover:border-accent" />
 
-                {/* Top Header */}
-                <div>
-                  <div className="mb-5 flex items-center justify-between">
-                    <span className="rounded-xl border border-accent/20 bg-accent/10 p-3 text-accent transition-colors group-hover:bg-accent group-hover:text-ink-900">
-                      <IconComponent size={24} />
-                    </span>
-                    <span className="text-xs font-mono font-semibold text-slate-500">
-                      0{index + 1} // CAPABILITY
-                    </span>
-                  </div>
-
-                  <h3 className="mb-3 text-xl font-bold text-white transition-colors group-hover:text-accent">
-                    {service.title}
-                  </h3>
-
-                  <p className="mb-6 text-sm leading-relaxed text-slate-300">
-                    {service.description}
-                  </p>
+                {/* Service Header */}
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="rounded-xl bg-accent/10 p-3 text-accent group-hover:bg-accent/20 transition-colors">
+                    <IconComponent size={28} />
+                  </span>
+                  <span className="font-geist-mono text-xs text-slate-400 group-hover:text-accent transition-colors">
+                    0{index + 1}
+                  </span>
                 </div>
 
+                <h3 className="mb-3 text-xl font-bold text-white group-hover:text-accent transition-colors">
+                  {service.title}
+                </h3>
+                <p className="mb-6 text-sm text-slate-300 leading-relaxed">
+                  {service.description}
+                </p>
+
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 border-t border-white/10 pt-5">
+                <div className="flex flex-wrap gap-2">
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-lg border border-accent/20 bg-accent/5 px-2.5 py-1 text-xs font-medium text-slate-300 transition-colors group-hover:border-accent/40 group-hover:text-accent"
+                      className="rounded-lg border border-white/5 bg-ink-900/60 px-3 py-1 font-geist-mono text-xs text-slate-300 group-hover:border-accent/20 group-hover:text-white transition-all"
                     >
                       {tag}
                     </span>
@@ -91,4 +88,3 @@ export function Services() {
     </section>
   );
 }
-
